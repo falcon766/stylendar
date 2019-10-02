@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13165.3"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Regular.otf">
+            <string>Montserrat-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="STProfileView" customModule="Stylendar" customModuleProvider="target">
+            <connections>
+                <outlet property="dateLabel" destination="Uy7-if-mJn" id="IuX-re-9S7"/>
+                <outlet property="nameLabel" destination="2LH-qd-wSN" id="Htq-Hw-1JJ"/>
+                <outlet property="profileImageView" destination="a5M-f6-HkK" id="Mk5-Vz-kMX"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="359" height="66"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hpg-lk-g8S" userLabel="ContainerView">
+                    <rect key="frame" x="0.0" y="0.0" width="359" height="66"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nbv-AI-Zt5" userLabel="ProfileView">
+                            <rect key="frame" x="0.0" y="1" width="84" height="64"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a5M-f6-HkK">
+                                    <rect key="frame" x="8" y="8" width="52" height="52"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="52" id="ArL-jF-Wg2"/>
+                                        <constraint firstAttribute="height" constant="52" id="jDI-fb-fLi"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="26"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="borderUIColor">
+                                            <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                            <real key="value" value="3"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2LH-qd-wSN">
+                                    <rect key="frame" x="72" y="32.5" width="0.0" height="0.0"/>
+                                    <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <gestureRecognizers/>
+                            <constraints>
+                                <constraint firstItem="2LH-qd-wSN" firstAttribute="leading" secondItem="a5M-f6-HkK" secondAttribute="trailing" constant="12" id="0iP-Pv-5Rg"/>
+                                <constraint firstItem="a5M-f6-HkK" firstAttribute="leading" secondItem="Nbv-AI-Zt5" secondAttribute="leading" constant="8" id="B93-Oy-C7o"/>
+                                <constraint firstAttribute="bottom" secondItem="a5M-f6-HkK" secondAttribute="bottom" constant="4" id="PKY-vG-0aI"/>
+                                <constraint firstAttribute="trailing" secondItem="2LH-qd-wSN" secondAttribute="trailing" constant="12" id="V5a-JY-PAm"/>
+                                <constraint firstItem="2LH-qd-wSN" firstAttribute="centerY" secondItem="Nbv-AI-Zt5" secondAttribute="centerY" id="k8v-nS-Tvi"/>
+                                <constraint firstItem="a5M-f6-HkK" firstAttribute="top" secondItem="Nbv-AI-Zt5" secondAttribute="top" constant="8" id="whp-VI-Z1K"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uy7-if-mJn">
+                            <rect key="frame" x="351" y="33" width="0.0" height="0.0"/>
+                            <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="24"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="Nbv-AI-Zt5" firstAttribute="centerY" secondItem="Hpg-lk-g8S" secondAttribute="centerY" id="CjV-O3-b2U"/>
+                        <constraint firstItem="Uy7-if-mJn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Nbv-AI-Zt5" secondAttribute="trailing" constant="8" id="LP0-UH-UZq"/>
+                        <constraint firstItem="Nbv-AI-Zt5" firstAttribute="leading" secondItem="Hpg-lk-g8S" secondAttribute="leading" id="TQW-IG-0MC"/>
+                        <constraint firstItem="Uy7-if-mJn" firstAttribute="centerY" secondItem="Hpg-lk-g8S" secondAttribute="centerY" id="afD-V2-y5s"/>
+                        <constraint firstAttribute="trailing" secondItem="Uy7-if-mJn" secondAttribute="trailing" constant="8" id="c3n-8Q-0Po"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="12"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="Hpg-lk-g8S" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Ixc-i3-I5h"/>
+                <constraint firstAttribute="trailing" secondItem="Hpg-lk-g8S" secondAttribute="trailing" id="T1e-kF-2eE"/>
+                <constraint firstItem="Hpg-lk-g8S" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="aYE-Ca-Krd"/>
+                <constraint firstAttribute="bottom" secondItem="Hpg-lk-g8S" secondAttribute="bottom" id="kY2-Ri-p01"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+</document>

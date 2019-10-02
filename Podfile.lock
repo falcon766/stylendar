@@ -1,0 +1,230 @@
+PODS:
+  - Alamofire (4.5.1)
+  - BadgeSwift (5.0.1)
+  - Crashlytics (3.8.6):
+    - Fabric (~> 1.6.3)
+  - CSStickyHeaderFlowLayout (0.2.11)
+  - CWStatusBarNotification (2.3.5)
+  - Device (3.0.3)
+  - DZNEmptyDataSet (1.8.1)
+  - Fabric (1.6.13)
+  - Firebase (4.3.0):
+    - Firebase/Core (= 4.3.0)
+  - Firebase/Auth (4.3.0):
+    - Firebase/Core
+    - FirebaseAuth (= 4.2.1)
+  - Firebase/Core (4.3.0):
+    - FirebaseAnalytics (= 4.0.4)
+    - FirebaseCore (= 4.0.8)
+  - Firebase/Database (4.3.0):
+    - Firebase/Core
+    - FirebaseDatabase (= 4.1.0)
+  - Firebase/DynamicLinks (4.3.0):
+    - Firebase/Core
+    - FirebaseDynamicLinks (= 2.1.0)
+  - Firebase/Messaging (4.3.0):
+    - Firebase/Core
+    - FirebaseMessaging (= 2.0.4)
+  - Firebase/Storage (4.3.0):
+    - Firebase/Core
+    - FirebaseStorage (= 2.0.2)
+  - FirebaseAnalytics (4.0.4):
+    - FirebaseCore (~> 4.0)
+    - FirebaseInstanceID (~> 2.0)
+    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
+    - nanopb (~> 0.3)
+  - FirebaseAuth (4.2.1):
+    - FirebaseAnalytics (~> 4.0)
+    - "GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)"
+    - GTMSessionFetcher/Core (~> 1.1)
+  - FirebaseCommunity (0.1.3):
+    - FirebaseCommunity/Root (= 0.1.3)
+  - FirebaseCommunity/Root (0.1.3)
+  - FirebaseCore (4.0.8):
+    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
+    - nanopb (~> 0.3)
+  - FirebaseDatabase (4.1.0):
+    - FirebaseAnalytics (~> 4.0)
+    - FirebaseCore (~> 4.0)
+    - leveldb-library (~> 1.18)
+  - FirebaseDynamicLinks (2.1.0):
+    - FirebaseAnalytics (~> 4.0)
+  - FirebaseInstanceID (2.0.4)
+  - FirebaseMessaging (2.0.4):
+    - FirebaseAnalytics (~> 4.0)
+    - FirebaseCore (~> 4.0)
+    - FirebaseInstanceID (~> 2.0)
+    - GoogleToolboxForMac/Logger (~> 2.1)
+    - Protobuf (~> 3.1)
+  - FirebaseStorage (2.0.2):
+    - FirebaseAnalytics (~> 4.0)
+    - FirebaseCore (~> 4.0)
+    - GTMSessionFetcher/Core (~> 1.1)
+  - GoogleToolboxForMac/DebugUtils (2.1.3):
+    - GoogleToolboxForMac/Defines (= 2.1.3)
+  - GoogleToolboxForMac/Defines (2.1.3)
+  - GoogleToolboxForMac/Logger (2.1.3):
+    - GoogleToolboxForMac/Defines (= 2.1.3)
+  - "GoogleToolboxForMac/NSData+zlib (2.1.3)":
+    - GoogleToolboxForMac/Defines (= 2.1.3)
+  - "GoogleToolboxForMac/NSDictionary+URLArguments (2.1.3)":
+    - GoogleToolboxForMac/DebugUtils (= 2.1.3)
+    - GoogleToolboxForMac/Defines (= 2.1.3)
+    - "GoogleToolboxForMac/NSString+URLArguments (= 2.1.3)"
+  - "GoogleToolboxForMac/NSString+URLArguments (2.1.3)"
+  - GTMSessionFetcher/Core (1.1.12)
+  - iCarousel (1.8.3)
+  - IQKeyboardManager (5.0.3)
+  - leveldb-library (1.18.3)
+  - LKAlertController (1.12.1)
+  - nanopb (0.3.8):
+    - nanopb/decode (= 0.3.8)
+    - nanopb/encode (= 0.3.8)
+  - nanopb/decode (0.3.8)
+  - nanopb/encode (0.3.8)
+  - PromiseKit (4.5.0):
+    - PromiseKit/Foundation (= 4.5.0)
+    - PromiseKit/QuartzCore (= 4.5.0)
+    - PromiseKit/UIKit (= 4.5.0)
+  - PromiseKit/Alamofire (4.5.0):
+    - Alamofire (~> 4.0)
+    - PromiseKit/CorePromise
+  - PromiseKit/CorePromise (4.5.0)
+  - PromiseKit/Foundation (4.5.0):
+    - PromiseKit/CorePromise
+  - PromiseKit/QuartzCore (4.5.0):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (4.5.0):
+    - PromiseKit/CorePromise
+  - Protobuf (3.4.0)
+  - ReachabilitySwift (3)
+  - SAMKeychain (1.5.3)
+  - SDWebImage (4.1.1):
+    - SDWebImage/Core (= 4.1.1)
+  - SDWebImage/Core (4.1.1)
+  - SVProgressHUD (2.2.1)
+  - SwiftDate (4.4.1)
+  - SwiftyJSON (3.1.4)
+  - SwiftyUserDefaults (3.0.0)
+  - ZSWSuffixTextView (1.0):
+    - ZSWSuffixTextView/Core (= 1.0)
+  - ZSWSuffixTextView/Core (1.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.3)
+  - BadgeSwift
+  - Crashlytics
+  - CSStickyHeaderFlowLayout (from `https://github.com/CSStickyHeaderFlowLayout/CSStickyHeaderFlowLayout.git`, branch `swift`)
+  - CWStatusBarNotification
+  - Device
+  - DZNEmptyDataSet
+  - Fabric
+  - Firebase
+  - Firebase/Auth
+  - Firebase/Database
+  - Firebase/DynamicLinks
+  - Firebase/Messaging
+  - Firebase/Storage
+  - FirebaseCommunity
+  - FirebaseInstanceID
+  - iCarousel
+  - IQKeyboardManager
+  - LKAlertController
+  - PromiseKit (= 4.5.0)
+  - PromiseKit/Alamofire (= 4.5.0)
+  - ReachabilitySwift (~> 3)
+  - SAMKeychain
+  - SDWebImage
+  - SVProgressHUD
+  - SwiftDate
+  - SwiftyJSON
+  - SwiftyUserDefaults
+  - ZSWSuffixTextView
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - BadgeSwift
+    - Crashlytics
+    - CWStatusBarNotification
+    - Device
+    - DZNEmptyDataSet
+    - Fabric
+    - Firebase
+    - FirebaseAnalytics
+    - FirebaseAuth
+    - FirebaseCommunity
+    - FirebaseCore
+    - FirebaseDatabase
+    - FirebaseDynamicLinks
+    - FirebaseInstanceID
+    - FirebaseMessaging
+    - FirebaseStorage
+    - GoogleToolboxForMac
+    - GTMSessionFetcher
+    - iCarousel
+    - IQKeyboardManager
+    - leveldb-library
+    - LKAlertController
+    - nanopb
+    - PromiseKit
+    - Protobuf
+    - ReachabilitySwift
+    - SAMKeychain
+    - SDWebImage
+    - SVProgressHUD
+    - SwiftDate
+    - SwiftyJSON
+    - SwiftyUserDefaults
+    - ZSWSuffixTextView
+
+EXTERNAL SOURCES:
+  CSStickyHeaderFlowLayout:
+    :branch: swift
+    :git: https://github.com/CSStickyHeaderFlowLayout/CSStickyHeaderFlowLayout.git
+
+CHECKOUT OPTIONS:
+  CSStickyHeaderFlowLayout:
+    :commit: 26b149685bb3929d12a7056f898d3e1d39f18f0f
+    :git: https://github.com/CSStickyHeaderFlowLayout/CSStickyHeaderFlowLayout.git
+
+SPEC CHECKSUMS:
+  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  BadgeSwift: 3defa56f504bfb46f2300122c4a565ec9e405c1e
+  Crashlytics: 95d05f4e4c19a771250c4bd9ce344d996de32bbf
+  CSStickyHeaderFlowLayout: 835d734b40e45460a4a72d3f2ca06dcdcd4f0dad
+  CWStatusBarNotification: 3d2738b25c3207f60cc50201388d3c96182545ff
+  Device: 9a5264ee4e0f392e7153d2c46b10c8df46b7aad2
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  Fabric: 2fb5676bc811af011a04513451f463dac6803206
+  Firebase: 83283761a1ef6dc9846e03d08059f51421afbd65
+  FirebaseAnalytics: 722b53c7b32bfc7806b06e0093a2f5180d4f2c5a
+  FirebaseAuth: d7f047fbeab98062b98ea933b8d934e0fb1190e2
+  FirebaseCommunity: 577bff60785dfe3fb214c8d3993477fc44286fb6
+  FirebaseCore: 69b1a5ac5f857ba6d5fd9d5fe794f4786dd5e579
+  FirebaseDatabase: 607284a103e961d7f5863ee603cab5e85f443bd6
+  FirebaseDynamicLinks: ed4cb6c42705aaa5e841ed2d76e3a4bddbec10c1
+  FirebaseInstanceID: 70c2b877e9338971b2429ea5a4293df6961aa44e
+  FirebaseMessaging: 3dd86bfda2acb680b05c97f3f8ac566e9bb87b2a
+  FirebaseStorage: 0cca42d9b889a0227c3a50121f45a4469fc9eb27
+  GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
+  GTMSessionFetcher: ebaa1f79a5366922c1735f1566901f50beba23b7
+  iCarousel: d782f635afac190c49bb8ee455882284cff8b85f
+  IQKeyboardManager: dc5b18b47e5170e4d150bb86dbee8c8a2fc48997
+  leveldb-library: 10fb39c39e243db4af1828441162405bbcec1404
+  LKAlertController: e229465c0b4543ea122bfe62567747e6213ee43f
+  nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  PromiseKit: 9c1d9f6d7b65e3951a90bea7f407c56972be5d8e
+  Protobuf: 03eef2ee0b674770735cf79d9c4d3659cf6908e8
+  ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
+  SAMKeychain: 483e1c9f32984d50ca961e26818a534283b4cd5c
+  SDWebImage: caf91ee75671c95eb7b3073cd90649d25f852a88
+  SVProgressHUD: db27c54e6e18bc903341661fc9feb55e04905cc4
+  SwiftDate: a70a534d4feed03b2a2b575e36bef82dc2286a8d
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  SwiftyUserDefaults: 0f1d45fc3aafb9064dac661e367f8f83fe21a4b4
+  ZSWSuffixTextView: 6f51208083b9d0cd6d1c92285e24f6f65ecb033c
+
+PODFILE CHECKSUM: 607660bffe6e7e97aef2b2d6f5f6b1714c70357b
+
+COCOAPODS: 1.7.0

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13165.3"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Regular.otf">
+            <string>Montserrat-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" id="Evo-7N-iz0" customClass="STUserTableViewCell" customModule="Stylendar" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Evo-7N-iz0" id="XA7-p6-8A2">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="55.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iyh-V4-5my" userLabel="ProfileView">
+                        <rect key="frame" x="16" y="6" width="177" height="44"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wl5-eh-Pqf">
+                                <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="IqY-6W-iAp"/>
+                                    <constraint firstAttribute="width" constant="44" id="bwi-SW-7Zo"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="22"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderUIColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Appleseed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0z-gV-7bx">
+                                <rect key="frame" x="56" y="12.5" width="121" height="18.5"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="wl5-eh-Pqf" firstAttribute="leading" secondItem="iyh-V4-5my" secondAttribute="leading" id="1ze-le-GBv"/>
+                            <constraint firstItem="g0z-gV-7bx" firstAttribute="leading" secondItem="wl5-eh-Pqf" secondAttribute="trailing" constant="12" id="Hwa-VY-MyJ"/>
+                            <constraint firstItem="g0z-gV-7bx" firstAttribute="centerY" secondItem="iyh-V4-5my" secondAttribute="centerY" id="L8P-4T-bWR"/>
+                            <constraint firstItem="wl5-eh-Pqf" firstAttribute="top" secondItem="iyh-V4-5my" secondAttribute="top" id="cIV-eS-S4V"/>
+                            <constraint firstAttribute="bottom" secondItem="wl5-eh-Pqf" secondAttribute="bottom" id="gLn-Mx-D2u"/>
+                            <constraint firstAttribute="trailing" secondItem="g0z-gV-7bx" secondAttribute="trailing" id="mOv-Xh-SMH"/>
+                        </constraints>
+                    </view>
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tuT-wR-fms" userLabel="ButtonView">
+                        <rect key="frame" x="251" y="6" width="116" height="44"/>
+                        <subviews>
+                            <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vfQ-Vy-ObS" userLabel="CancelButton">
+                                <rect key="frame" x="8" y="0.0" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="Bpu-tf-7fY"/>
+                                    <constraint firstAttribute="height" constant="44" id="km6-Yz-V1B"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="ic_cancel"/>
+                                <connections>
+                                    <action selector="didTapFollowRequestButton:" destination="Evo-7N-iz0" eventType="touchDown" id="lA8-Ub-Pv9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P6P-Qu-2AP" userLabel="AcceptButton">
+                                <rect key="frame" x="64" y="0.0" width="44" height="44"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="ic_check"/>
+                                <connections>
+                                    <action selector="didTapFollowRequestButton:" destination="Evo-7N-iz0" eventType="touchDown" id="OBT-rz-Zw3"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="vfQ-Vy-ObS" firstAttribute="leading" secondItem="tuT-wR-fms" secondAttribute="leading" priority="999" constant="8" id="1dn-fI-NzC"/>
+                            <constraint firstItem="P6P-Qu-2AP" firstAttribute="leading" secondItem="vfQ-Vy-ObS" secondAttribute="trailing" constant="12" id="25a-b8-pNx"/>
+                            <constraint firstItem="P6P-Qu-2AP" firstAttribute="width" secondItem="vfQ-Vy-ObS" secondAttribute="width" id="7S4-dB-H4H"/>
+                            <constraint firstItem="P6P-Qu-2AP" firstAttribute="bottom" secondItem="vfQ-Vy-ObS" secondAttribute="bottom" id="FMS-iI-jNI"/>
+                            <constraint firstItem="P6P-Qu-2AP" firstAttribute="top" secondItem="vfQ-Vy-ObS" secondAttribute="top" id="Tor-Nj-bbY"/>
+                            <constraint firstItem="P6P-Qu-2AP" firstAttribute="height" secondItem="vfQ-Vy-ObS" secondAttribute="height" id="VsH-ul-7Sp"/>
+                            <constraint firstItem="vfQ-Vy-ObS" firstAttribute="top" secondItem="tuT-wR-fms" secondAttribute="top" priority="999" id="bB8-WD-fr4"/>
+                            <constraint firstAttribute="bottom" secondItem="vfQ-Vy-ObS" secondAttribute="bottom" priority="999" id="f9e-Ds-6Ta"/>
+                            <constraint firstAttribute="trailing" secondItem="P6P-Qu-2AP" secondAttribute="trailing" constant="8" id="jS1-bD-wLK"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="tuT-wR-fms" firstAttribute="centerY" secondItem="XA7-p6-8A2" secondAttribute="centerY" id="77i-4a-Bhf"/>
+                    <constraint firstItem="iyh-V4-5my" firstAttribute="centerY" secondItem="XA7-p6-8A2" secondAttribute="centerY" id="IXb-WJ-sTj"/>
+                    <constraint firstAttribute="trailing" secondItem="tuT-wR-fms" secondAttribute="trailing" constant="8" id="Qv6-wP-7wI"/>
+                    <constraint firstItem="iyh-V4-5my" firstAttribute="leading" secondItem="XA7-p6-8A2" secondAttribute="leading" constant="16" id="gOY-9B-ggC"/>
+                    <constraint firstItem="tuT-wR-fms" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iyh-V4-5my" secondAttribute="trailing" constant="4" id="uXN-Zr-Khg"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="0.08235294118" green="0.61176470589999998" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+            <connections>
+                <outlet property="buttonView" destination="tuT-wR-fms" id="7lV-dy-j83"/>
+                <outlet property="nameLabel" destination="g0z-gV-7bx" id="Zck-N5-nbO"/>
+                <outlet property="profileImageView" destination="wl5-eh-Pqf" id="RIr-at-Ihh"/>
+                <outlet property="profileView" destination="iyh-V4-5my" id="7b0-zy-NjM"/>
+            </connections>
+            <point key="canvasLocation" x="12.5" y="-112"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ic_cancel" width="48" height="48"/>
+        <image name="ic_check" width="48" height="48"/>
+    </resources>
+</document>

@@ -1,0 +1,65 @@
+POST _search
+{
+    "query": {
+        "match_all": {}
+    }
+}
+
+POST /users/_search
+{
+    "query": {
+        "wildcard": {
+            "name": {
+                "value": "*pa*",
+                "boost": 2
+            }
+        },
+        "widlcard": {
+            "username": {
+                "value": "*pa*"
+            }
+        }
+    }
+}
+
+POST /users/_search
+{
+    "query": {
+        "wildcard": {
+            "username": {
+                "value": "*pa*"
+            }
+        }
+    }
+}
+
+POST /users/_search
+{
+    "query": {
+        "query_string": {
+            "fields": ["name", "username"],
+            "query": "*Pa*",
+            "lowercase_expanded_terms": false
+        }
+    },
+    "size": 10,
+    "search_after": [
+        "user#XXqfPi9AxyUAG6l1Yle0Gw0UtbR2"
+    ],
+    "sort": [
+         {"_uid": "asc"}
+    ]
+}
+
+POST /users/user/bMutbD5T2pd3P2deGz7631cgBie2
+{
+    "name": "Paul Berg",
+    "username": "PaulRBerg"
+}
+
+POST /users/user/bMutbD5T2pd3P2deGz7631cgBie2/_update
+{
+    "doc": {
+        "name": "Paul Berg2"
+    }
+}

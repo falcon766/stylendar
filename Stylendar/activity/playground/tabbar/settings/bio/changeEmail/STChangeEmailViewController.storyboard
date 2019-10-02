@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13178.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="uyh-TP-z1c">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13156.2"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Regular.otf">
+            <string>Montserrat-Regular</string>
+        </array>
+        <array key="Montserrat-SemiBold.otf">
+            <string>Montserrat-SemiBold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Change Email View Controller-->
+        <scene sceneID="Ns4-uq-qnz">
+            <objects>
+                <viewController id="uyh-TP-z1c" customClass="STChangeEmailViewController" customModule="Stylendar" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2aD-DU-U0d"/>
+                        <viewControllerLayoutGuide type="bottom" id="oFf-5Q-kXA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1fh-Qy-Hhb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IOb-Fx-v2P" userLabel="headerView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TAP TO APPLY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iew-Iu-hMF">
+                                        <rect key="frame" x="16" y="14.5" width="93" height="16"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="13"/>
+                                        <color key="textColor" red="0.46274509800000002" green="0.46274509800000002" blue="0.4823529412" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WPn-Ka-Z9N">
+                                        <rect key="frame" x="219" y="11" width="144" height="22"/>
+                                        <color key="backgroundColor" red="0.36078431370000003" green="0.79607843140000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="22" id="dqT-S6-f4L"/>
+                                            <constraint firstAttribute="width" priority="750" constant="144" id="s3r-Vz-8Ye"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="11"/>
+                                        <state key="normal" title="SAVE">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didTapSaveButton:" destination="uyh-TP-z1c" eventType="touchDown" id="AqM-Pg-mtf"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.91764705879999997" green="0.92549019610000005" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Iew-Iu-hMF" firstAttribute="centerY" secondItem="IOb-Fx-v2P" secondAttribute="centerY" id="6af-jp-nRH"/>
+                                    <constraint firstItem="Iew-Iu-hMF" firstAttribute="leading" secondItem="IOb-Fx-v2P" secondAttribute="leading" constant="16" id="LZd-vE-LEh"/>
+                                    <constraint firstAttribute="height" constant="44" id="WVf-oY-xpX"/>
+                                    <constraint firstItem="WPn-Ka-Z9N" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Iew-Iu-hMF" secondAttribute="trailing" constant="16" id="Y1a-pL-POF"/>
+                                    <constraint firstAttribute="trailing" secondItem="WPn-Ka-Z9N" secondAttribute="trailing" constant="12" id="oz5-lY-FS4"/>
+                                    <constraint firstItem="WPn-Ka-Z9N" firstAttribute="centerY" secondItem="IOb-Fx-v2P" secondAttribute="centerY" id="zJw-mD-mLM"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="H4C-Su-6FI">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <color key="backgroundColor" red="0.91764705879999997" green="0.92549019610000005" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="meq-rp-Vx4">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <outlet property="dataSource" destination="uyh-TP-z1c" id="veY-pV-U3E"/>
+                                    <outlet property="delegate" destination="uyh-TP-z1c" id="0W2-1z-yTI"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="H4C-Su-6FI" firstAttribute="top" secondItem="1fh-Qy-Hhb" secondAttribute="top" constant="44" id="06r-Mu-Lnh"/>
+                            <constraint firstAttribute="trailing" secondItem="H4C-Su-6FI" secondAttribute="trailing" id="1fM-Xx-iqX"/>
+                            <constraint firstItem="IOb-Fx-v2P" firstAttribute="leading" secondItem="1fh-Qy-Hhb" secondAttribute="leading" id="O1U-PB-nwl"/>
+                            <constraint firstAttribute="bottom" secondItem="H4C-Su-6FI" secondAttribute="bottom" id="T1p-kg-C2e"/>
+                            <constraint firstAttribute="trailing" secondItem="IOb-Fx-v2P" secondAttribute="trailing" id="eo1-is-0K2"/>
+                            <constraint firstItem="H4C-Su-6FI" firstAttribute="leading" secondItem="1fh-Qy-Hhb" secondAttribute="leading" id="tx6-xv-rk0"/>
+                            <constraint firstItem="IOb-Fx-v2P" firstAttribute="top" secondItem="1fh-Qy-Hhb" secondAttribute="top" id="yTg-0a-BoN"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="saveButton" destination="WPn-Ka-Z9N" id="8Y4-j6-LOB"/>
+                        <outlet property="tableView" destination="H4C-Su-6FI" id="Zqu-3J-1Tg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NsH-NU-SLr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-322" y="114"/>
+        </scene>
+    </scenes>
+</document>

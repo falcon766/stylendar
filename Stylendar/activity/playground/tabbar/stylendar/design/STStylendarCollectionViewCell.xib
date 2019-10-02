@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Regular.otf">
+            <string>Montserrat-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="yXb-xw-YKF" customClass="STStylendarCollectionViewCell" customModule="Stylendar" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="96" height="160"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="96" height="160"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jIM-Sf-jxT" userLabel="ImageSuperView">
+                        <rect key="frame" x="4" y="4" width="88" height="130"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_insert_photo_white" translatesAutoresizingMaskIntoConstraints="NO" id="06d-O5-Bfo">
+                                <rect key="frame" x="26" y="47" width="36" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="19C-qA-pfA"/>
+                                    <constraint firstAttribute="width" constant="36" id="RSA-8o-EEp"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" tag="225" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FMh-Md-jaf">
+                                <rect key="frame" x="0.0" y="0.0" width="88" height="130"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.73725490196078436" green="0.73725490196078436" blue="0.73725490196078436" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="FMh-Md-jaf" firstAttribute="leading" secondItem="jIM-Sf-jxT" secondAttribute="leading" id="K7G-Uv-E0i"/>
+                            <constraint firstItem="FMh-Md-jaf" firstAttribute="top" secondItem="jIM-Sf-jxT" secondAttribute="top" id="U0c-ZS-fVv"/>
+                            <constraint firstAttribute="trailing" secondItem="FMh-Md-jaf" secondAttribute="trailing" id="WDj-Gx-fkr"/>
+                            <constraint firstItem="06d-O5-Bfo" firstAttribute="centerY" secondItem="jIM-Sf-jxT" secondAttribute="centerY" id="cmG-fy-RR9"/>
+                            <constraint firstAttribute="height" constant="130" id="gIw-sA-YdE"/>
+                            <constraint firstItem="06d-O5-Bfo" firstAttribute="centerX" secondItem="jIM-Sf-jxT" secondAttribute="centerX" id="hBc-2D-8er"/>
+                            <constraint firstAttribute="bottom" secondItem="FMh-Md-jaf" secondAttribute="bottom" id="ha0-uz-lmL"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NE5-gn-dEp" userLabel="LabelView">
+                        <rect key="frame" x="0.0" y="134" width="96" height="26"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKX-tg-QAs">
+                                <rect key="frame" x="44.5" y="5" width="7.5" height="16"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="13"/>
+                                <color key="textColor" red="0.63529411764705879" green="0.63529411764705879" blue="0.63529411764705879" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="IKX-tg-QAs" firstAttribute="centerY" secondItem="NE5-gn-dEp" secondAttribute="centerY" id="NWV-Hm-Nk0"/>
+                            <constraint firstItem="IKX-tg-QAs" firstAttribute="centerX" secondItem="NE5-gn-dEp" secondAttribute="centerX" id="pyq-Hd-OXf"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="jIM-Sf-jxT" firstAttribute="top" secondItem="yXb-xw-YKF" secondAttribute="top" constant="4" id="2Z9-O9-Yh9"/>
+                <constraint firstAttribute="trailing" secondItem="jIM-Sf-jxT" secondAttribute="trailing" constant="4" id="7dA-8z-sjX"/>
+                <constraint firstItem="NE5-gn-dEp" firstAttribute="top" secondItem="jIM-Sf-jxT" secondAttribute="bottom" id="N3x-8M-Evp"/>
+                <constraint firstItem="jIM-Sf-jxT" firstAttribute="leading" secondItem="yXb-xw-YKF" secondAttribute="leading" constant="4" id="QBv-ni-vpA"/>
+                <constraint firstAttribute="trailing" secondItem="NE5-gn-dEp" secondAttribute="trailing" id="R62-dr-F6T"/>
+                <constraint firstItem="NE5-gn-dEp" firstAttribute="leading" secondItem="yXb-xw-YKF" secondAttribute="leading" id="Vsf-Nc-pmy"/>
+                <constraint firstAttribute="bottom" secondItem="NE5-gn-dEp" secondAttribute="bottom" id="qpZ-Ia-WlG"/>
+            </constraints>
+            <connections>
+                <outlet property="dayLabel" destination="IKX-tg-QAs" id="AWM-PB-gfg"/>
+                <outlet property="imageView" destination="FMh-Md-jaf" id="6sS-8E-Jn4"/>
+                <outlet property="plusImageView" destination="06d-O5-Bfo" id="42x-Zc-ASH"/>
+            </connections>
+            <point key="canvasLocation" x="-9" y="-14"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="ic_insert_photo_white" width="36" height="36"/>
+    </resources>
+</document>

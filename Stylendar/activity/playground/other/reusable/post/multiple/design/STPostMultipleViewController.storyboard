@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="tGb-k6-Tw8">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13165.3"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Data Source-->
+        <scene sceneID="3Na-3x-T1x">
+            <objects>
+                <viewController id="tGb-k6-Tw8" customClass="STPostMultipleViewController" customModule="Stylendar" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UXc-8N-P2e"/>
+                        <viewControllerLayoutGuide type="bottom" id="XWa-01-36S"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NNF-Rf-R2d">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BfR-uw-XBW" userLabel="HeaderView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="74"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6dt-XY-xLp" userLabel="SpaceView">
+                                        <rect key="frame" x="12" y="0.0" width="351" height="4"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="4" id="a4o-e5-Htw"/>
+                                        </constraints>
+                                    </view>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bzH-cj-AFU" userLabel="ProfileView" customClass="STProfileView" customModule="Stylendar" customModuleProvider="target">
+                                        <rect key="frame" x="8" y="4" width="359" height="66"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="xibName" value="STProfileView"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qMS-yc-Hv1" userLabel="SpaceView">
+                                        <rect key="frame" x="12" y="70" width="351" height="4"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="4" id="hTk-q0-hPj"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="6dt-XY-xLp" firstAttribute="leading" secondItem="BfR-uw-XBW" secondAttribute="leading" constant="12" id="Ake-JM-YiD"/>
+                                    <constraint firstAttribute="height" constant="74" id="Jev-xV-4Em"/>
+                                    <constraint firstItem="qMS-yc-Hv1" firstAttribute="top" secondItem="bzH-cj-AFU" secondAttribute="bottom" id="P01-Yn-98I"/>
+                                    <constraint firstItem="bzH-cj-AFU" firstAttribute="top" secondItem="6dt-XY-xLp" secondAttribute="bottom" id="W5b-gz-Jj8"/>
+                                    <constraint firstItem="bzH-cj-AFU" firstAttribute="leading" secondItem="BfR-uw-XBW" secondAttribute="leading" constant="8" id="baT-ak-nce"/>
+                                    <constraint firstItem="6dt-XY-xLp" firstAttribute="top" secondItem="BfR-uw-XBW" secondAttribute="top" id="d0t-QI-ift"/>
+                                    <constraint firstItem="qMS-yc-Hv1" firstAttribute="leading" secondItem="BfR-uw-XBW" secondAttribute="leading" constant="12" id="jEM-13-hkC"/>
+                                    <constraint firstAttribute="trailing" secondItem="bzH-cj-AFU" secondAttribute="trailing" constant="8" id="kot-aZ-gZb"/>
+                                    <constraint firstAttribute="trailing" secondItem="6dt-XY-xLp" secondAttribute="trailing" constant="12" id="nvm-3C-ykq"/>
+                                    <constraint firstAttribute="trailing" secondItem="qMS-yc-Hv1" secondAttribute="trailing" constant="12" id="p4Y-C4-970"/>
+                                    <constraint firstAttribute="bottom" secondItem="qMS-yc-Hv1" secondAttribute="bottom" id="ryt-5w-bOB"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jCM-AQ-KKg" customClass="iCarousel">
+                                <rect key="frame" x="0.0" y="74" width="375" height="593"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="tGb-k6-Tw8" id="afe-9d-wDh"/>
+                                    <outlet property="delegate" destination="tGb-k6-Tw8" id="vr7-yV-xrO"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.36470588240000001" blue="0.4823529412" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="BfR-uw-XBW" secondAttribute="trailing" id="27T-bA-ZAF"/>
+                            <constraint firstItem="jCM-AQ-KKg" firstAttribute="top" secondItem="BfR-uw-XBW" secondAttribute="bottom" id="7Uc-K9-kC7"/>
+                            <constraint firstItem="jCM-AQ-KKg" firstAttribute="leading" secondItem="NNF-Rf-R2d" secondAttribute="leading" id="LYh-WY-8oH"/>
+                            <constraint firstItem="BfR-uw-XBW" firstAttribute="top" secondItem="NNF-Rf-R2d" secondAttribute="top" id="Rui-4d-qGK"/>
+                            <constraint firstAttribute="trailing" secondItem="jCM-AQ-KKg" secondAttribute="trailing" id="fp3-O4-jq8"/>
+                            <constraint firstAttribute="bottom" secondItem="jCM-AQ-KKg" secondAttribute="bottom" id="nRn-QJ-l8t"/>
+                            <constraint firstItem="BfR-uw-XBW" firstAttribute="leading" secondItem="NNF-Rf-R2d" secondAttribute="leading" id="wyX-oe-UWd"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="carousel" destination="jCM-AQ-KKg" id="fgr-Lt-YfY"/>
+                        <outlet property="profileView" destination="bzH-cj-AFU" id="0zM-8Q-90H"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="17V-PY-WNU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1476" y="139"/>
+        </scene>
+    </scenes>
+</document>
