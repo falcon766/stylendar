@@ -30,7 +30,7 @@ extension STChangePasswordViewController: UITableViewDataSource, UITableViewDele
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? STProfileTableViewCell else { return UITableViewCell() }
         cell.valueTextField.delegate = self
         cell.valueTextField.isSecureTextEntry = true
-        
+        cell.iconImageView.tintColor = .iconGray
         switch indexPath.row {
             /**
              *  The current password of the user. Secured by the text field from being shown.
