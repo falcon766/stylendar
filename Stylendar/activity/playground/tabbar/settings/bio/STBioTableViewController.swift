@@ -105,7 +105,7 @@ extension STBioViewController: UITableViewDataSource {
              */
             case 4:
                 cell.accessoryType = .disclosureIndicator
-                cell.selectionStyle = .default
+                cell.selectionStyle = .none
                 
                 cell.iconImageView.image = #imageLiteral(resourceName: "ic_email")
                 cell.iconImageView.tintColor = .iconGray

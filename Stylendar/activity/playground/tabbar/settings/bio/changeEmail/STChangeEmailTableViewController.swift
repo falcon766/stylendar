@@ -30,7 +30,7 @@ extension STChangeEmailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! STProfileTableViewCell
         cell.valueTextField.delegate = self
-        
+        cell.iconImageView.tintColor = .iconGray
         switch indexPath.row {
             /**
                 The current password of the user. Secured by the text field from being shown.
@@ -38,7 +38,6 @@ extension STChangeEmailViewController: UITableViewDataSource {
             case 0:
                 cell.iconImageView.image = UIImage(named: "ic_password")
                 cell.valueLabel.text = NSLocalizedString("Re-Enter Password", comment: "")
-                
                 passwordTextField = cell.valueTextField
                 cell.valueTextField.text = ""
                 cell.valueTextField.placeholder = NSLocalizedString("Enter", comment: "")
