@@ -22,10 +22,10 @@ extension STPeopleViewController {
             appearance.dividerColour = .white
 
             appearance.segmentOnSelectionColour = .white
-            appearance.segmentOffSelectionColour = .complementary
+            appearance.segmentOffSelectionColour = .main
             
         
-            appearance.titleOnSelectionColour = .complementary
+            appearance.titleOnSelectionColour = .main
             appearance.titleOffSelectionColour = .white
             appearance.titleOffSelectionFont = UIFont.montserrat(size: 12)
             appearance.titleOnSelectionFont = UIFont.montserrat(size: 12)

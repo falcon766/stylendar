@@ -48,7 +48,7 @@ extension UIViewController {
         profileImageView.clipsToBounds = true
         profileImageView.layer.cornerRadius = 16
         profileImageView.layer.borderColor = UIColor.white.cgColor
-        profileImageView.layer.borderWidth = 3
+        profileImageView.layer.borderWidth = 1
         appendFixedConstraints(profileImageView, width: 32, height: 32)
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapProfileAreaBarButtonItem(_:)))

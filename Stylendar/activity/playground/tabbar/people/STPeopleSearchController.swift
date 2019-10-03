@@ -22,9 +22,8 @@ extension STPeopleViewController {
         searchController.delegate = self
         searchController.dimsBackgroundDuringPresentation = true
         searchController.hidesNavigationBarDuringPresentation = false
-        
         searchController.searchBar.tintColor = .white
-        searchController.searchBar.subviews[0].subviews.flatMap(){ $0 as? UITextField }.first?.tintColor = .complementary
+        searchController.searchBar.subviews[0].subviews.compactMap(){ $0 as? UITextField }.first?.tintColor = .white
 
         /**
          *  Annoying iOS 11 black bar bug solved. Read more: https://stackoverflow.com/questions/45350035/ios-11-searchbar-in-navigationbar
