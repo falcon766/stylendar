@@ -187,7 +187,7 @@ extension STFeedViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     }
     
     func backgroundColor(forEmptyDataSet scrollView: UIScrollView!) -> UIColor! {
-        return .complementary
+        return .main
     }
     
     func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {

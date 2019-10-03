@@ -14,7 +14,7 @@ extension STProfileViewController {
      *  Appends the congigured navigation bar to the view controller.
      */
     func appendNavigationBar() {
-        navigationController?.navigationBar.barTintColor = .complementary
+        navigationController?.navigationBar.barTintColor = .main
         navigationItem.title = data.user.name.first?.uppercased()
     }
     

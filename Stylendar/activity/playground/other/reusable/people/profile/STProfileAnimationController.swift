@@ -16,7 +16,7 @@ extension STProfileViewController {
     func appendNavigationBarColor() {
         UIView.animate(withDuration: 0.4, animations: { [weak self] in
             guard let strongSelf = self else { return }
-            strongSelf.navigationController?.navigationBar.barTintColor = .complementary
+            strongSelf.navigationController?.navigationBar.barTintColor = .main
             }, completion: { [weak self] success in
                 guard let strongSelf = self else { return }
                 strongSelf.navigationController?.navigationBar.layoutIfNeeded()

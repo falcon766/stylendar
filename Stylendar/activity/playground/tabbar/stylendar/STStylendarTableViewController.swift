@@ -15,7 +15,7 @@ extension STStylendarViewController {
      *  Appends the configured table view to the view controller.
      */
     func appendTableView() {
-        color = state == .personal ? .main : .complementary
+        color = .main
         tableView.register(UINib(nibName: String(describing: STStylendarTableViewCell.self), bundle: Bundle.main), forCellReuseIdentifier: "cell")
     }
     

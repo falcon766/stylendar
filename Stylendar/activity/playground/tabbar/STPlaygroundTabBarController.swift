@@ -28,7 +28,7 @@ class STPlaygroundTabBarController: UITabBarController, UITabBarControllerDelega
         /**
          *  We want a different tab bar item tint color for the feed.
          */
-        tabBar.tintColor = (tabIndex != 2 && tabIndex != 3) ? .main : .complementary
+//        tabBar.tintColor = (tabIndex != 2 && tabIndex != 3) ? .main : .complementary
 
         /**
          *  Basically, the stylendar gets on screen and the image panel is opened for the user.
@@ -72,7 +72,7 @@ extension STPlaygroundTabBarController {
         /**
          *  We finally redirect the user to the desired page. We also have to set the tint color, because the `shouldSelectViewController` method from above doesn't get called.
          */
-        tabBar.tintColor = .complementary
+        tabBar.tintColor = .main
         selectedIndex = 3
         
         /**

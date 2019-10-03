@@ -15,7 +15,7 @@ extension STPostMultipleViewController {
      *  Appends the data state of the given profile and post.
      */
     func startup() {
-        view.backgroundColor = data.user?.uid == Auth.auth().currentUser?.uid ? .main : .complementary
+        view.backgroundColor = .main
         
         if let profileImageUrl = data.user?.profileImageUrl, let url = URL(string: profileImageUrl) {
             profileView.profileImageView.fade(with: url, errorImage: #imageLiteral(resourceName: "ic_profile"), completion: { [weak self] success in

@@ -118,7 +118,7 @@ class STStylendarViewController: STViewController {
      */
     override func willMove(toParentViewController parent: UIViewController?) {
         if parent == nil {
-            navigationController?.navigationBar.barTintColor = .complementary
+            navigationController?.navigationBar.barTintColor = .main
         }
         super.willMove(toParentViewController: parent)
     }
