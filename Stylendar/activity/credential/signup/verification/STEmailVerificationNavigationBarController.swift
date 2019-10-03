@@ -14,7 +14,7 @@ extension STEmailVerificationViewController {
      *  Handles the case when the view controller is pushed frmo the login page.
      */
     func appendNavigationBar() {
-        navigationController?.navigationBar.setBackgroundVisible()
+        navigationController?.navigationBar.setBackgroundInvisible()
         navigationController?.navigationBar.showBottomHairline()
     }
 }

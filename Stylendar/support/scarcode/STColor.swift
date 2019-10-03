@@ -111,7 +111,7 @@ extension UIColor {
      */
     class var iconGray: UIColor {
         get {
-            return UIColor(red: 72/255.0, green: 72/255.0, blue: 72/255.0, alpha: 1.0)
+            return UIColor(red: 154/255.0, green: 154/255.0, blue: 154/255.0, alpha: 1.0)
         }
     }
     
