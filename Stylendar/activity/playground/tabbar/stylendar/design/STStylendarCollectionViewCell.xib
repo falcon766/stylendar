@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -24,17 +22,17 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jIM-Sf-jxT" userLabel="ImageSuperView">
-                        <rect key="frame" x="4" y="4" width="88" height="130"/>
+                        <rect key="frame" x="1" y="1" width="94" height="130"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_insert_photo_white" translatesAutoresizingMaskIntoConstraints="NO" id="06d-O5-Bfo">
-                                <rect key="frame" x="26" y="47" width="36" height="36"/>
+                                <rect key="frame" x="29" y="47" width="36" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="19C-qA-pfA"/>
                                     <constraint firstAttribute="width" constant="36" id="RSA-8o-EEp"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" tag="225" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FMh-Md-jaf">
-                                <rect key="frame" x="0.0" y="0.0" width="88" height="130"/>
+                                <rect key="frame" x="0.0" y="0.0" width="94" height="130"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.73725490196078436" green="0.73725490196078436" blue="0.73725490196078436" alpha="1" colorSpace="calibratedRGB"/>
@@ -49,38 +47,51 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NE5-gn-dEp" userLabel="LabelView">
-                        <rect key="frame" x="0.0" y="134" width="96" height="26"/>
+                        <rect key="frame" x="1" y="132" width="94" height="27"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKX-tg-QAs">
-                                <rect key="frame" x="44.5" y="5" width="7.5" height="16"/>
+                                <rect key="frame" x="43.5" y="5.5" width="7.5" height="16"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="13"/>
-                                <color key="textColor" red="0.63529411764705879" green="0.63529411764705879" blue="0.63529411764705879" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <color key="backgroundColor" red="0.47843137250000001" green="0.63921568630000003" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="IKX-tg-QAs" firstAttribute="centerY" secondItem="NE5-gn-dEp" secondAttribute="centerY" id="NWV-Hm-Nk0"/>
                             <constraint firstItem="IKX-tg-QAs" firstAttribute="centerX" secondItem="NE5-gn-dEp" secondAttribute="centerX" id="pyq-Hd-OXf"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="itd-5i-tEa">
+                        <rect key="frame" x="1" y="131" width="94" height="1"/>
+                        <color key="backgroundColor" red="0.33725490196078434" green="0.45490196078431372" blue="0.47058823529411764" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="Q6r-mq-Hms"/>
                         </constraints>
                     </view>
                 </subviews>
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="jIM-Sf-jxT" firstAttribute="top" secondItem="yXb-xw-YKF" secondAttribute="top" constant="4" id="2Z9-O9-Yh9"/>
-                <constraint firstAttribute="trailing" secondItem="jIM-Sf-jxT" secondAttribute="trailing" constant="4" id="7dA-8z-sjX"/>
-                <constraint firstItem="NE5-gn-dEp" firstAttribute="top" secondItem="jIM-Sf-jxT" secondAttribute="bottom" id="N3x-8M-Evp"/>
-                <constraint firstItem="jIM-Sf-jxT" firstAttribute="leading" secondItem="yXb-xw-YKF" secondAttribute="leading" constant="4" id="QBv-ni-vpA"/>
-                <constraint firstAttribute="trailing" secondItem="NE5-gn-dEp" secondAttribute="trailing" id="R62-dr-F6T"/>
-                <constraint firstItem="NE5-gn-dEp" firstAttribute="leading" secondItem="yXb-xw-YKF" secondAttribute="leading" id="Vsf-Nc-pmy"/>
-                <constraint firstAttribute="bottom" secondItem="NE5-gn-dEp" secondAttribute="bottom" id="qpZ-Ia-WlG"/>
+                <constraint firstItem="jIM-Sf-jxT" firstAttribute="top" secondItem="yXb-xw-YKF" secondAttribute="top" constant="1" id="2Z9-O9-Yh9"/>
+                <constraint firstAttribute="trailing" secondItem="jIM-Sf-jxT" secondAttribute="trailing" constant="1" id="7dA-8z-sjX"/>
+                <constraint firstItem="itd-5i-tEa" firstAttribute="top" secondItem="jIM-Sf-jxT" secondAttribute="bottom" id="Era-O7-MUe"/>
+                <constraint firstItem="itd-5i-tEa" firstAttribute="leading" secondItem="yXb-xw-YKF" secondAttribute="leading" constant="1" id="L92-64-9Vb"/>
+                <constraint firstItem="NE5-gn-dEp" firstAttribute="top" secondItem="jIM-Sf-jxT" secondAttribute="bottom" constant="1" id="N3x-8M-Evp"/>
+                <constraint firstItem="jIM-Sf-jxT" firstAttribute="leading" secondItem="yXb-xw-YKF" secondAttribute="leading" constant="1" id="QBv-ni-vpA"/>
+                <constraint firstAttribute="trailing" secondItem="NE5-gn-dEp" secondAttribute="trailing" constant="1" id="R62-dr-F6T"/>
+                <constraint firstItem="NE5-gn-dEp" firstAttribute="leading" secondItem="yXb-xw-YKF" secondAttribute="leading" constant="1" id="Vsf-Nc-pmy"/>
+                <constraint firstAttribute="trailing" secondItem="itd-5i-tEa" secondAttribute="trailing" constant="1" id="kXl-uG-U6m"/>
+                <constraint firstAttribute="bottom" secondItem="NE5-gn-dEp" secondAttribute="bottom" constant="1" id="qpZ-Ia-WlG"/>
             </constraints>
             <connections>
                 <outlet property="dayLabel" destination="IKX-tg-QAs" id="AWM-PB-gfg"/>
                 <outlet property="imageView" destination="FMh-Md-jaf" id="6sS-8E-Jn4"/>
+                <outlet property="labelView" destination="NE5-gn-dEp" id="B2A-U8-8f5"/>
+                <outlet property="lineView" destination="itd-5i-tEa" id="a9q-4R-dle"/>
                 <outlet property="plusImageView" destination="06d-O5-Bfo" id="42x-Zc-ASH"/>
             </connections>
-            <point key="canvasLocation" x="-9" y="-14"/>
+            <point key="canvasLocation" x="-9.5999999999999996" y="-14.392803598200901"/>
         </collectionViewCell>
     </objects>
     <resources>

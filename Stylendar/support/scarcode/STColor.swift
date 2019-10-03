@@ -66,7 +66,7 @@ extension UIColor {
      */
     class var divider: UIColor {
         get {
-            return UIColor(red: 221/255.0, green: 221/255.0, blue: 221/255.0, alpha: 1.0)
+            return UIColor(red: 86/255.0, green: 116/255.0, blue: 120/255.0, alpha: 1.0)
         }
     }
     
@@ -84,7 +84,7 @@ extension UIColor {
      */
     class var appGray: UIColor {
         get {
-            return UIColor(red: 177/255.0, green: 177/255.0, blue: 177/255.0, alpha: 1.0)
+            return .white// UIColor(red: 177/255.0, green: 177/255.0, blue: 177/255.0, alpha: 1.0)
         }
     }
     
@@ -120,7 +120,7 @@ extension UIColor {
      */
     class var main: UIColor {
         get {
-            return UIColor(red: 0, green: 112/255.0, blue: 142/255.0, alpha: 1.0) // #005d7b
+            return UIColor(red: 122/255.0, green: 163/255.0, blue: 176/255.0, alpha: 1.0) //  #7AA3B0
         }
     }
     

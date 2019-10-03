@@ -57,8 +57,10 @@ extension STStylendarViewController: UICollectionViewDataSource {
          *  If the current cell represents the today's polaroid, we highlight it with the navy blue from the palette.
          */
         guard let path = data.selector.holder.paths[index] else { return cell }
-        cell.dayLabel.textColor = data.selector.todayIndex != index ? .appGray : .appBlue
-        
+        cell.dayLabel.textColor = data.selector.todayIndex != index ? .appGray : .main
+        cell.labelView.backgroundColor = data.selector.todayIndex != index ? .main : .appGray
+        cell.imageView.backgroundColor = data.selector.todayIndex != index ? .main : .appGray
+        cell.lineView.backgroundColor = data.selector.todayIndex != index ? .appGray : .main
         /**
          *  Set the image view.
          */

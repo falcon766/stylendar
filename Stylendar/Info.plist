@@ -68,6 +68,7 @@
 	<string>Enhance the Stylendar experience</string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Roboto</string>
 		<string>Quicksand-Medium.ttf</string>
 		<string>Quicksand-Bold.ttf</string>
 		<string>Quicksand-Light.ttf</string>
