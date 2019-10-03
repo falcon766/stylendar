@@ -16,6 +16,7 @@ class STStylendarCollectionViewCell: UICollectionViewCell {
     weak var delegate: STStylendarCollectionViewCellDelegate?
     
     
+    @IBOutlet weak var imageContainerView: UIView!
     @IBOutlet weak var lineView: UIView!
     @IBOutlet weak var labelView: UIView!
     @IBOutlet weak var imageView: UIImageView!

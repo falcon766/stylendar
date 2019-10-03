@@ -106,6 +106,8 @@ extension STStylendarViewController {
                 if let tableViewCell = strongSelf.tableView.cellForRow(at: tableIndexPath) as? STStylendarTableViewCell {
                     if let collectionViewCell = tableViewCell.collectionView.cellForItem(at: collectionIndexPath) as? STStylendarCollectionViewCell {
                         collectionViewCell.imageView.image = image
+                        collectionViewCell.imageView.isHidden = false
+                        collectionViewCell.plusImageView.isHidden = true
                     }
                 }
             }
@@ -195,6 +197,8 @@ extension STStylendarViewController {
         if let tableViewCell = tableView.cellForRow(at: tableIndexPath) as? STStylendarTableViewCell {
             if let collectionViewCell = tableViewCell.collectionView.cellForItem(at: collectionIndexPath) as? STStylendarCollectionViewCell {
                 collectionViewCell.imageView.image = nil
+                collectionViewCell.plusImageView.isHidden = false
+                collectionViewCell.imageView.isHidden = true
             }
         }
         STAlert.top(STString.removeImageSuccess, isPositive: true)

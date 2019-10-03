@@ -59,15 +59,20 @@ extension STStylendarViewController: UICollectionViewDataSource {
         guard let path = data.selector.holder.paths[index] else { return cell }
         cell.dayLabel.textColor = data.selector.todayIndex != index ? .appGray : .main
         cell.labelView.backgroundColor = data.selector.todayIndex != index ? .main : .appGray
-        cell.imageView.backgroundColor = data.selector.todayIndex != index ? .main : .appGray
+        cell.imageContainerView.backgroundColor = data.selector.todayIndex != index ? .main : .appGray
         cell.lineView.backgroundColor = data.selector.todayIndex != index ? .appGray : .main
+        cell.plusImageView.image = data.selector.todayIndex != index ? UIImage(named: "logo-white") : UIImage(named: "logo-blue")
         /**
          *  Set the image view.
          */
         if let urlString = self.data.urls[path], let url = URL(string: urlString) {
+            cell.plusImageView.isHidden = true
+            cell.imageView.isHidden = false
             cell.imageView.fade(with: url, completion: { (success) in })
         } else {
             cell.imageView.image = nil
+            cell.plusImageView.isHidden = false
+            cell.imageView.isHidden = true
         }
         
         return cell
