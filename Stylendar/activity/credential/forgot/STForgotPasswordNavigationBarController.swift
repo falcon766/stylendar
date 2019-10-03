@@ -13,7 +13,7 @@ extension STForgotPasswordViewController {
      *  Appends the configured navigation bar to the view controller.
      */
     func appendNavigationBar() {
-        navigationController?.navigationBar.setBackgroundVisible()
+        navigationController?.navigationBar.setBackgroundInvisible()
         navigationController?.navigationBar.showBottomHairline()
     }
 }
