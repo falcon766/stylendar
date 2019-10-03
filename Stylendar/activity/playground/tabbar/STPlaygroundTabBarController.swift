@@ -12,7 +12,14 @@ import SwiftyUserDefaults
 import SDWebImage
 
 class STPlaygroundTabBarController: UITabBarController, UITabBarControllerDelegate {
-    
+    struct TabbarType {
+        static let feed: Int = 0
+        static let camera: Int = 1
+        static let stylendar: Int = 2
+        static let people: Int = 3
+        static let setting: Int = 4
+
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,12 +40,12 @@ class STPlaygroundTabBarController: UITabBarController, UITabBarControllerDelega
         /**
          *  Basically, the stylendar gets on screen and the image panel is opened for the user.
          */
-        if tabIndex == 1, let navigationController = tabBarController.viewControllers?.first as? UINavigationController, let stylendarViewController = navigationController.viewControllers.first as? STStylendarViewController {
-            selectedIndex = 0
+        if tabIndex == TabbarType.camera, let navigationController = tabBarController.viewControllers?[TabbarType.stylendar] as? UINavigationController, let stylendarViewController = navigationController.viewControllers.first as? STStylendarViewController {
+            selectedIndex = TabbarType.stylendar
             stylendarViewController.didTapCameraButton()
         }
  
-        return tabIndex != 1
+        return tabIndex != TabbarType.camera
     }
 }
 
@@ -50,12 +57,12 @@ extension STPlaygroundTabBarController {
      */
     func selectCameraViewController() {
         guard
-            let navigationController = viewControllers?[0] as? UINavigationController,
+            let navigationController = viewControllers?[TabbarType.stylendar] as? UINavigationController,
             navigationController.viewControllers.count <= 1,
             let stylendarViewController = navigationController.viewControllers.first as? STStylendarViewController
         else { return }
         
-        selectedIndex = 0
+        selectedIndex = TabbarType.stylendar
         stylendarViewController.didTapCameraButton()
     }
     
@@ -64,7 +71,7 @@ extension STPlaygroundTabBarController {
      */
     func selectPeopleViewController(notificationType: STNotificationType, userInfo: [AnyHashable:Any]) {
         guard
-            let navigationController = viewControllers?[3] as? UINavigationController,
+            let navigationController = viewControllers?[TabbarType.people] as? UINavigationController,
             navigationController.viewControllers.count <= 1,
             let peopleViewController = navigationController.viewControllers.first as? STPeopleViewController
         else { return }
