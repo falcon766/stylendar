@@ -22,7 +22,7 @@ class STPlaygroundTabBarController: UITabBarController, UITabBarControllerDelega
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        selectedIndex = TabbarType.stylendar
         /**
          *  Really don't know what can't they default this...
          */

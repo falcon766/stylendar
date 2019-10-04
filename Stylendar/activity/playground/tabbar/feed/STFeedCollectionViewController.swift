@@ -153,7 +153,7 @@ extension STFeedViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (STDevice.width - 18) / 2
-        return CGSize(width: width, height: width * 5 / 3)
+        return CGSize(width: width, height: width * 5 / 3.5)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
