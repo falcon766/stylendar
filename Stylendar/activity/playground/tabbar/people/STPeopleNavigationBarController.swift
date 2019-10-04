@@ -14,5 +14,6 @@ extension STPeopleViewController {
      */
     func appendNavigationBar() {
         navigationItem.title = NSLocalizedString("People", comment: "")
+        navigationController?.navigationBar.shadowImage = UIColor.divider.as1ptImage()
     }
 }

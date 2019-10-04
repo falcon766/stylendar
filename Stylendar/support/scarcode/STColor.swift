@@ -33,7 +33,7 @@ extension UIColor {
             return UIColor(red: 238/255.0, green: 240/255.0, blue: 246/255.0, alpha: 1.0)
         }
     }
-    
+
     /**
      *  The navy blue color from the palette.
      */
@@ -158,5 +158,14 @@ extension UIColor {
             return .clear
         }
         return UIColor(red: CGFloat(r) / 255, green: CGFloat(g) / 255, blue: CGFloat(b) / 255, alpha: CGFloat(a) / 255)
+    }
+
+    func as1ptImage() -> UIImage {
+        UIGraphicsBeginImageContext(CGSize(width: 1, height: 1))
+        setFill()
+        UIGraphicsGetCurrentContext()?.fill(CGRect(x: 0, y: 0, width: 1, height: 1))
+        let image = UIGraphicsGetImageFromCurrentImageContext() ?? UIImage()
+        UIGraphicsEndImageContext()
+        return image
     }
 }

@@ -26,6 +26,7 @@ extension UIViewController {
         barButtonItem.tintColor = .white
         barButtonItem.setTitleTextAttributes([NSAttributedStringKey(rawValue: UIFontDescriptor.AttributeName.name.rawValue): UIFont.fontNames(forFamilyName: "Montserrat")[0]], for: .normal)
         navigationItem.setRightBarButton(barButtonItem, animated: false)
+        navigationController?.navigationBar.shadowImage = UIColor.divider.as1ptImage()
     }
     
     /**
@@ -60,6 +61,20 @@ extension UIViewController {
         let nameBarButtonItem = UIBarButtonItem(title: name.uppercased(), style: .done, target: self, action: #selector(didTapProfileAreaBarButtonItem(_:)))
         nameBarButtonItem.tintColor = .white
         nameBarButtonItem.setTitleTextAttributes([NSAttributedStringKey(rawValue: UIFontDescriptor.AttributeName.name.rawValue): UIFont.fontNames(forFamilyName: "Montserrat")[0]], for: .normal)
+
+        /**
+         * The logo icon
+         */
+        let logoImageView = UIImageView(image: UIImage(named: "logo-white"))
+
+        logoImageView.frame = CGRect(x: 0, y: 0, width: 32, height: 32)
+        logoImageView.isUserInteractionEnabled = true
+        logoImageView.contentMode = .scaleAspectFit
+        logoImageView.clipsToBounds = true
+        let logoTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapLogoBarButtonItem(_:)))
+        logoImageView.addGestureRecognizer(logoTapGestureRecognizer)
+        appendFixedConstraints(logoImageView, width: 32, height: 32)
+        let logoBarButtonItem = UIBarButtonItem(customView: logoImageView)
         
         /**
          *  The image bar button item.
@@ -70,7 +85,12 @@ extension UIViewController {
             imageBarButtonItem.action = #selector(strongSelf.didTapProfileAreaBarButtonItem(_:))
             strongSelf.navigationItem.leftItemsSupplementBackButton = true
             strongSelf.navigationItem.leftBarButtonItems = [imageBarButtonItem, nameBarButtonItem]
+            strongSelf.navigationItem.rightBarButtonItems = [logoBarButtonItem]
+            strongSelf.navigationController?.navigationBar.shadowImage = UIColor.divider.as1ptImage()
         }
+
+
+
         profileImageView.fade(with: profileImageUrl, errorImage: STImage.profileImagePlaceholder, completion: { success in
             profileImageView.backgroundColor = .white
             profileImageView.tintColor = .appGray
@@ -93,6 +113,17 @@ extension UIViewController {
      *  When the profile image is tapped, we go to the settings page which is the fifth tab in the tab bar.
      */
     @objc fileprivate func didTapProfileAreaBarButtonItem(_ sender: Any) {
+        if let stylendarViewController = self as? STStylendarViewController, stylendarViewController.state == .global {
+            stylendarViewController.delegate?.didTapProfileArea?(sender)
+        } else {
+            tabBarController?.selectedIndex = 4
+        }
+    }
+
+    /**
+     *  When the logo image is tapped, we go to scroll to current day.
+     */
+    @objc fileprivate func didTapLogoBarButtonItem(_ sender: Any) {
         if let stylendarViewController = self as? STStylendarViewController, stylendarViewController.state == .global {
             stylendarViewController.delegate?.didTapProfileArea?(sender)
         } else {

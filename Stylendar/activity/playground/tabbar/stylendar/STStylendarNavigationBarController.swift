@@ -14,6 +14,7 @@ extension STStylendarViewController {
      */
     func appendNavigationBar() {
         navigationController?.navigationBar.barTintColor = color
+        navigationController?.navigationBar.shadowImage = UIColor.divider.as1ptImage()
     }
     
     /**
