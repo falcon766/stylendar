@@ -11,7 +11,7 @@
 
 # This is the minimum version number required.
 # Update this, if you use features of a newer version
-fastlane_version "2.54.2"
+# fastlane_version "2.54.2"
 
 default_platform :ios
 
@@ -65,6 +65,58 @@ platform :ios do
   end
 end
 
+
+generic_appcenter_info = {
+  api_token: ENV['APP_CENTER_TOKEN'],
+  owner_name: ENV['APP_CENTER_OWNER_NAME'],
+  release_notes: Time.now.strftime('%Y%m%d %H:%M:%S'),
+  group: ENV['APP_CENTER_GROUP']
+}
+
+platform :ios do
+  desc 'Prepare for building iOS'
+  private_lane :prepare do
+    version = increment_build_number(xcodeproj: './Stylendar.xcodeproj')
+    Dir.chdir('..') do
+      sh 'pod install'
+    end
+    version
+  end
+
+  desc 'Build the iOS application.'
+  private_lane :build_adhoc do
+    version = prepare
+    build_app(
+      silent: true,
+      scheme: 'Stylendar',
+      export_method: 'ad-hoc',
+      workspace: './Stylendar.xcworkspace',
+      clean: true,
+      output_directory: './build/',
+      output_name: 'Stylendar_Adhoc.ipa',
+      export_options: {
+        provisioningProfiles: {
+          'com.Stylendar' => 'Stylendar_AdHoc'
+        }
+      }
+    )
+    version
+  end
+
+  desc 'Build and ship the iOS app to App Center'
+  lane :buildToAppCenter do
+    # version = build_adhoc
+    appcenter_upload(
+      generic_appcenter_info.merge(
+        app_name: ENV['APP_CENTER_APP_NAME_IOS'],
+        ipa: './build/Stylendar_Adhoc.ipa'
+      )
+    )
+    git_commit(path: ['./Stylendar.xcodeproj', './Stylendar/Info.plist'], message: 'Bump versionCode')
+    push_to_git_remote
+    
+  end
+end
 
 # More information about multiple platforms in fastlane: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Platforms.md
 # All available actions: https://docs.fastlane.tools/actions
