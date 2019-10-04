@@ -48,7 +48,7 @@
         <scene sceneID="4J2-4T-qUo">
             <objects>
                 <navigationController storyboardIdentifier="stylendarController" title="Stylendar Navigation Controller" id="Fbf-Pp-pOU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="ic_stylendar" id="Pep-dA-TFW"/>
+                    <tabBarItem key="tabBarItem" title="" image="ic_stylendar" id="Pep-dA-TFW"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="IWM-z3-EOn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -94,7 +94,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="96" height="44"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SUN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HuB-Gf-yeQ">
-                                                                        <rect key="frame" x="25" y="9" width="46.5" height="26"/>
+                                                                        <rect key="frame" x="26.5" y="9" width="43.5" height="26"/>
                                                                         <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="22"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                         <nil key="highlightedColor"/>
@@ -129,7 +129,7 @@
                                                                         <rect key="frame" x="4" y="0.0" width="96" height="44"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MON" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XuS-oD-Uqh">
-                                                                                <rect key="frame" x="22" y="9" width="52" height="26"/>
+                                                                                <rect key="frame" x="23" y="9" width="50" height="26"/>
                                                                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="22"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <nil key="highlightedColor"/>
@@ -175,7 +175,7 @@
                                                                         <rect key="frame" x="4" y="0.0" width="96" height="44"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TUE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wdb-MO-MEH">
-                                                                                <rect key="frame" x="27" y="9" width="42" height="26"/>
+                                                                                <rect key="frame" x="28" y="9" width="40.5" height="26"/>
                                                                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="22"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <nil key="highlightedColor"/>
@@ -221,7 +221,7 @@
                                                                         <rect key="frame" x="4" y="0.0" width="96" height="44"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1aO-jC-fur">
-                                                                                <rect key="frame" x="23.5" y="9" width="49.5" height="26"/>
+                                                                                <rect key="frame" x="24.5" y="9" width="47" height="26"/>
                                                                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="22"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <nil key="highlightedColor"/>
@@ -267,7 +267,7 @@
                                                                         <rect key="frame" x="4" y="0.0" width="96" height="44"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THU" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9E-jD-n6B">
-                                                                                <rect key="frame" x="26" y="9" width="44.5" height="26"/>
+                                                                                <rect key="frame" x="26.5" y="9" width="43.5" height="26"/>
                                                                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="22"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <nil key="highlightedColor"/>
@@ -313,7 +313,7 @@
                                                                         <rect key="frame" x="4" y="0.0" width="96" height="44"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FRI" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awi-sQ-Npg">
-                                                                                <rect key="frame" x="31.5" y="9" width="33.5" height="26"/>
+                                                                                <rect key="frame" x="32" y="9" width="32.5" height="26"/>
                                                                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="22"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <nil key="highlightedColor"/>
@@ -469,7 +469,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a private account, you have to be a follower to see the content" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7zx-k9-dMF">
-                                        <rect key="frame" x="32" y="321" width="311" height="30.5"/>
+                                        <rect key="frame" x="32" y="321" width="311" height="32"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="13"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -516,7 +516,7 @@
             </objects>
             <point key="canvasLocation" x="1175" y="725"/>
         </scene>
-        <!--Camera-->
+        <!--View Controller-->
         <scene sceneID="wlj-3k-xEc">
             <objects>
                 <viewController id="wb6-7v-o0k" sceneMemberID="viewController">
@@ -578,7 +578,7 @@
                             <constraint firstItem="ZGm-zY-L0m" firstAttribute="leading" secondItem="Bpe-yS-w7d" secondAttribute="leading" id="hZ3-fa-kwB"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Camera" image="ic_add_a_photo_white" id="sxn-oi-rxh"/>
+                    <tabBarItem key="tabBarItem" title="" image="ic_add_a_photo_white" id="sxn-oi-rxh"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G3n-tj-Jaz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -588,7 +588,7 @@
         <scene sceneID="NXl-LE-Mkd">
             <objects>
                 <navigationController storyboardIdentifier="homeController" title="Home Navigation Controller" id="7DM-CX-10v" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Feed" image="ic_home" id="i5R-aD-nIz"/>
+                    <tabBarItem key="tabBarItem" title="" image="ic_feed" id="i5R-aD-nIz"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="IFd-F4-5X8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -660,7 +660,7 @@
             <objects>
                 <navigationController storyboardIdentifier="peopleController" title="People Navigation Controller" automaticallyAdjustsScrollViewInsets="NO" id="4ub-sO-H2p" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <tabBarItem key="tabBarItem" title="People" image="ic_people" id="Zmx-7m-7jn"/>
+                    <tabBarItem key="tabBarItem" title="" image="ic_people" id="Zmx-7m-7jn"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Clz-u7-PVH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -748,7 +748,7 @@
         <scene sceneID="f6N-yp-K7g">
             <objects>
                 <navigationController storyboardIdentifier="settingsController" title="Settings Navigation Controller" id="mlO-b6-mDV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" image="ic_settings" id="XvG-qt-bIt"/>
+                    <tabBarItem key="tabBarItem" title="" image="ic_settings" id="XvG-qt-bIt"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="KtX-8E-wwx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -885,7 +885,7 @@
     <resources>
         <image name="ic_add_a_photo_white" width="24" height="24"/>
         <image name="ic_calendar" width="24" height="24"/>
-        <image name="ic_home" width="24" height="24"/>
+        <image name="ic_feed" width="27" height="26"/>
         <image name="ic_lock" width="48" height="48"/>
         <image name="ic_people" width="24" height="24"/>
         <image name="ic_settings" width="24" height="24"/>
