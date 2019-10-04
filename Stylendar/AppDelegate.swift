@@ -36,7 +36,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // temporary fix, read more: https://github.com/firebase/firebase-ios-sdk/issues/315
         application.registerForRemoteNotifications()
-
+        if #available(iOS 13.0, *) {
+            self.window?.overrideUserInterfaceStyle = .light
+        };
         guard !AppDelegate.isWithinUnitTest else {
             // During unit tests, we don't want to initialize Firebase, since by default we want to able
             // to run unit tests without requiring a non-dummy GoogleService-Info.plist file
