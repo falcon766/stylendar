@@ -100,6 +100,10 @@ class STStylendarViewController: STViewController {
                                                selector: #selector(self.updateHighlightedDay),
                                                name: NSNotification.Name.UIApplicationDidBecomeActive,
                                                object:  nil)
+        NotificationCenter.default.addObserver(self,
+        selector: #selector(self.updateHighlightedDay),
+        name: UserNotificationsUpdateCurrentDateNotification,
+        object:  nil)
     }
     
     /**
@@ -111,6 +115,9 @@ class STStylendarViewController: STViewController {
         NotificationCenter.default.removeObserver(self,
                                                   name: NSNotification.Name.UIApplicationDidBecomeActive,
                                                   object:  nil)
+        NotificationCenter.default.removeObserver(self,
+        name: UserNotificationsUpdateCurrentDateNotification,
+        object:  nil)
     }
     
     /**

@@ -76,7 +76,6 @@ extension STStylendarViewController {
          *  We don't need to run this method if this is the first initialization of the view controller, that's because the lazy var
          *  'start' is not yet generated and calling `data.selector.start` will mess up the system.
          */
-        guard let _ = data.createdAt else { return }
         
         let oldTodayIndex = data.selector.todayIndex
         /**
@@ -88,8 +87,26 @@ extension STStylendarViewController {
             oldTodayIndex != todayIndex
         else { return }
         data.selector.todayIndex = todayIndex
-        
-        tableView.reloadRows(at: [IndexPath(row: oldTodayIndex, section: 0), IndexPath(row: todayIndex, section: 0)], with: .none)
+        /*
+         * Each row is a collection view include 7 days
+         */
+        let rowIndex = todayIndex / 7
+        let columnIndex = todayIndex % 7
+        let oldRowIndex = oldTodayIndex / 7
+        let oldColumnIndex = oldTodayIndex % 7
+        /*
+         * if 2 days are the same row
+         */
+        if oldRowIndex ==  rowIndex, let cell = tableView.cellForRow(at: IndexPath(item: rowIndex, section: 0)) as? STStylendarTableViewCell {
+            cell.collectionView.reloadItems(at: [IndexPath(item: columnIndex, section: 0), IndexPath(item: oldColumnIndex, section: 0)])
+        }else {//the old day is saturday and the new day is sunday
+            if let cell = tableView.cellForRow(at: IndexPath(item: rowIndex, section: 0)) as? STStylendarTableViewCell {
+                cell.collectionView.reloadItems(at: [IndexPath(item: columnIndex, section: 0)])
+            }
+            if let oldCell = tableView.cellForRow(at: IndexPath(item: oldRowIndex, section: 0)) as? STStylendarTableViewCell {
+                oldCell.collectionView.reloadItems(at: [IndexPath(item: oldColumnIndex, section: 0)])
+            }
+        }
     }
 }
 
