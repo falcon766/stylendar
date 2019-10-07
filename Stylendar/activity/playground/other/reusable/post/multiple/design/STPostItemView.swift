@@ -9,5 +9,7 @@
 import UIKit
 
 class STPostItemView: UIView {
+    @IBOutlet weak var fillerView: UIView!
+    @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var postImageView: UIImageView!
 }

@@ -56,6 +56,8 @@
                 <constraint firstItem="OJF-eG-ZCH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="6" id="ihi-3s-UKa"/>
             </constraints>
             <connections>
+                <outlet property="fillerView" destination="7IP-uw-QJf" id="yr3-kv-B2l"/>
+                <outlet property="logoImageView" destination="LOJ-Be-baJ" id="J2E-hV-Aue"/>
                 <outlet property="postImageView" destination="Sc0-zr-qEs" id="3aD-uT-y07"/>
             </connections>
             <point key="canvasLocation" x="34.5" y="53.5"/>
