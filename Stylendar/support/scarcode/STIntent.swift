@@ -42,37 +42,28 @@ class STIntent {
     
     class func gotoCredential(sender: UIViewController, completion: (() -> Void)?) {
         let storyboard = UIStoryboard(name: STConstant.kSTStoryboardCredential, bundle: .main)
-//        if Defaults[.didUserLogIn] == true {
-            let onboardingViewController = storyboard.instantiateViewController(withIdentifier: STConstant.kSTOnboardingController)
-            sender.present(onboardingViewController, animated: true, completion: completion)
-            return
-//        }
-        
-        guard let initialViewController = storyboard.instantiateInitialViewController() else { return }
-        sender.present(initialViewController, animated: true, completion: completion)
+        let onboardingViewController = storyboard.instantiateViewController(withIdentifier: STConstant.kSTOnboardingController)
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            appDelegate.window?.rootViewController = onboardingViewController
+        }
     }
     
     /**
      *  Goes to the root view controller of the authenticated user.
      */
-    class func gotoPlayground(sender: UIViewController) {
-        gotoPlayground(sender: sender, completion: nil)
-    }
-    
-    class func gotoPlayground(sender: UIViewController, completion: (() -> Void)?) {
-        /**
-         *  After the user logs in at least once, he won't see the invitation page again.
-         */
-        if Defaults[.didUserLogIn] == false { Defaults[.didUserLogIn] = true }
-        
-        /**
-         *  We always try to receive the latest user's profile when we go the playground of the app.
-         */
-        STDatabase.shared.retrieveUser()
-
-        let storyboard = UIStoryboard(name: STConstant.kSTStoryboardPlayground, bundle: Bundle.main)
-        let tabViewController = storyboard.instantiateInitialViewController()
-        sender.present(tabViewController!, animated: true, completion: completion)
+    class func gotoPlaygroundAsRoot(completion: (() -> Void)? = nil) {
+       /**
+        *  We always try to receive the latest user's profile when we go the playground of the app.
+        */
+        STDatabase.shared.retrieveNewData().then { (_) -> Void in
+            if Defaults[.didUserLogIn] == false { Defaults[.didUserLogIn] = true }
+            if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+                let storyboard = UIStoryboard(name: STConstant.kSTStoryboardPlayground, bundle: Bundle.main)
+                let tabViewController = storyboard.instantiateInitialViewController()
+                appDelegate.window?.rootViewController = tabViewController
+                completion?()
+            }
+        }
     }
     
     /**

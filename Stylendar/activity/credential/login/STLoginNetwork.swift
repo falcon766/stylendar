@@ -46,6 +46,6 @@ extension STLoginViewController {
             STIntent.gotoEmailVerification(sender: self)
             return
         }
-        STIntent.gotoPlayground(sender: self)
+        STIntent.gotoPlaygroundAsRoot()
     }
 }

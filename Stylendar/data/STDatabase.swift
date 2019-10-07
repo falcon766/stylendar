@@ -301,6 +301,36 @@ extension STDatabase {
             print(error.localizedDescription)
         }
     }
+
+    func retrieveNewData() -> Promise<Void> {
+        return Promise<Void>{ (resolve, reject) in
+            guard let authId = Auth.auth().currentUser?.uid else {
+                let error = NSError()
+                return reject(error)
+            }
+
+            state = .active
+            STDatabase
+                .shared
+                .ref
+                .child(STUser.node)
+                .child(authId)
+                .observeSingleEvent(of: .value, with: { [unowned self] snapshot in
+                    if let dictionary = snapshot.value as? [String:AnyObject], snapshot.exists() {
+                        STUser.shared.parse(dictionary)
+                        resolve(())
+                        return
+                    }
+                    self.state = .still
+                    reject(NSError(domain: "snapshot doesn't exist.", code: 999, userInfo: nil))
+                    print("@retrieveUser: snapshot doesn't exist.")
+            }) { [unowned self] error in
+                self.state = .still
+                reject(error)
+                print(error.localizedDescription)
+            }
+        }
+    }
 }
 
 

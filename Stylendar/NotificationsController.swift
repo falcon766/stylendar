@@ -129,11 +129,9 @@ extension NotificationsController {
             let notificationType = userInfo[STNotification.type] as? String,
             let tabBarController = UIApplication.topViewController()?.tabBarController as? STPlaygroundTabBarController
         else {
-            if let rootViewController = UIApplication.shared.keyWindow?.rootViewController {
-                STIntent.gotoPlayground(sender: rootViewController, completion: { [weak self] in
-                    guard let strongSelf = self else { return }
-                    strongSelf.redirect(userInfo)
-                })
+            STIntent.gotoPlaygroundAsRoot { [weak self] in
+                guard let strongSelf = self else { return }
+                strongSelf.redirect(userInfo)
             }
             return
         }

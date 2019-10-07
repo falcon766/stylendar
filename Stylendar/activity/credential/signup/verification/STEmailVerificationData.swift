@@ -38,7 +38,7 @@ extension STEmailVerificationViewController {
             /**
              *  Great! We go the playground of the app.
              */
-            STIntent.gotoPlayground(sender: self)
+            STIntent.gotoPlaygroundAsRoot()
         })
     }
 }
