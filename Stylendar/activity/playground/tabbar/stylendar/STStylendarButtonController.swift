@@ -36,4 +36,13 @@ extension STStylendarViewController {
         data.selector.path = path
         presentPickerAlertController(delegate: self, allowsEditing: false)
     }
+
+    func didTapLogoButton() {
+        let date = Date()
+        let path = STDate.format(date.year, date.month, date.day)
+
+        if case nil = data.urls[path]{
+            appendAutoScroll()
+        }
+    }
 }

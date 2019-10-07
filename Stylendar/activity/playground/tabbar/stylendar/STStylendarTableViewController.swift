@@ -24,7 +24,8 @@ extension STStylendarViewController {
      */
     func appendAutoScroll() {
         guard
-            var indexPath = data.selector.indexPathsForToday()?.first
+        let indexPaths = data.selector.indexPathsForToday(),
+        var indexPath = indexPaths.first
         else { return }
         
         switch Device.size() {
@@ -41,6 +42,13 @@ extension STStylendarViewController {
         guard indexPath.row > 0 else { return }
 //        print("indexPath.row is: \(indexPath.row) and indexPath.section is: \(indexPath.section)")
         tableView.scrollToRow(at: indexPath, at: .top, animated: false)
+
+        if indexPaths.count > 1{
+            let column: CGFloat = CGFloat(indexPaths[1].item)
+            let size = STYLENDAR_CELL_WIDTH * (column >= 1 && column < 5 ? column - 1 : column)
+            scrollView.scrollRectToVisible(CGRect(x: size, y: 0, width: UIScreen.main.bounds.width, height: 200), animated: true)
+        }
+
     }
     
     /**
@@ -104,7 +112,7 @@ extension STStylendarViewController: UITableViewDelegate {
      *  It' better to set the height through delegates because it's esaier to change them.
      */
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 168
+        return STYLENDAR_CELL_HEIGHT
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

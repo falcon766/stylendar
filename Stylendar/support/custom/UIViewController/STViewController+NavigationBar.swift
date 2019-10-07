@@ -124,10 +124,9 @@ extension UIViewController {
      *  When the logo image is tapped, we go to scroll to current day.
      */
     @objc fileprivate func didTapLogoBarButtonItem(_ sender: Any) {
-        if let stylendarViewController = self as? STStylendarViewController, stylendarViewController.state == .global {
-            stylendarViewController.delegate?.didTapProfileArea?(sender)
-        } else {
-            tabBarController?.selectedIndex = 4
+        if let stylendarViewController = self as? STStylendarViewController, stylendarViewController.state != .global {
+            stylendarViewController.didTapLogoButton()
+
         }
     }
 }

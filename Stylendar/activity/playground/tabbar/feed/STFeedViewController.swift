@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
+let STYLENDAR_CELL_WIDTH: CGFloat = 96
+let STYLENDAR_CELL_HEIGHT: CGFloat = 168
 class STFeedViewController: STViewController {
     
     /**

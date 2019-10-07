@@ -37,6 +37,8 @@ class STStylendarViewController: STViewController {
     @IBOutlet weak var tableView: STTableView!
     @IBOutlet weak var tableEmptyView: UIView!
     @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     var profileImageView: UIImageView!
     
     /**

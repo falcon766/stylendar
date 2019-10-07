@@ -43,6 +43,8 @@ class STPlaygroundTabBarController: UITabBarController, UITabBarControllerDelega
         if tabIndex == TabbarType.camera, let navigationController = tabBarController.viewControllers?[TabbarType.stylendar] as? UINavigationController, let stylendarViewController = navigationController.viewControllers.first as? STStylendarViewController {
             selectedIndex = TabbarType.stylendar
             stylendarViewController.didTapCameraButton()
+        }else if tabIndex == TabbarType.stylendar, let navigationController = tabBarController.viewControllers?[TabbarType.stylendar] as? UINavigationController, let stylendarViewController = navigationController.viewControllers.first as? STStylendarViewController {
+            stylendarViewController.appendAutoScroll()
         }
  
         return tabIndex != TabbarType.camera

@@ -503,6 +503,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="headerView" destination="LVv-tJ-cUx" id="g7F-qq-vwe"/>
+                        <outlet property="scrollView" destination="jlV-67-x5P" id="sgo-BK-WZM"/>
                         <outlet property="tableEmptyView" destination="97G-og-4Rs" id="CQv-5u-rEJ"/>
                         <outlet property="tableView" destination="0VO-xH-hMh" id="tJa-H7-Ivt"/>
                     </connections>
@@ -885,7 +886,7 @@
     <resources>
         <image name="ic_add_a_photo_white" width="24" height="24"/>
         <image name="ic_calendar" width="24" height="24"/>
-        <image name="ic_feed" width="27" height="26"/>
+        <image name="ic_feed" width="20" height="21"/>
         <image name="ic_lock" width="48" height="48"/>
         <image name="ic_people" width="24" height="24"/>
         <image name="ic_settings" width="24" height="24"/>

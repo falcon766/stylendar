@@ -144,7 +144,7 @@ extension STStylendarViewController: UICollectionViewDelegate, STStylendarCollec
 
 extension STStylendarViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 96, height: collectionView.frame.size.height)
+        return CGSize(width: STYLENDAR_CELL_WIDTH, height: collectionView.frame.size.height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
