@@ -33,13 +33,15 @@ class STSelector {
      */
     var createdAt: String?
 
-    lazy var start: Date = {
-        guard
-            let createdAt = createdAt,
-            let date = createdAt.date(format: .iso8601(options: .withInternetDateTime), fromRegion: .GMT())?.absoluteDate
-        else { return Date() - (Date().weekday-1).days }
-        return (date - (date.weekday-1).days).startOfDay
-    }()
+    var start: Date {
+        get {
+            guard
+                let createdAt = createdAt,
+                let date = createdAt.date(format: .iso8601(options: .withInternetDateTime), fromRegion: .GMT())?.absoluteDate
+            else { return Date() - (Date().weekday-1).days }
+            return (date - (date.weekday-1).days).startOfDay
+        }
+    }
     
     lazy var end: Date = {
         return Date() + 3.months
