@@ -122,16 +122,16 @@
                                 <rect key="frame" x="6" y="74" width="363" height="587"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tp3-cH-APj">
-                                        <rect key="frame" x="8" y="8" width="347" height="571"/>
+                                        <rect key="frame" x="1" y="1" width="361" height="585"/>
                                         <color key="backgroundColor" red="0.73725490199999999" green="0.73725490199999999" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="Tp3-cH-APj" secondAttribute="bottom" constant="8" id="CJ3-fb-jsD"/>
-                                    <constraint firstItem="Tp3-cH-APj" firstAttribute="top" secondItem="wch-SU-KZY" secondAttribute="top" constant="8" id="d0w-3I-K23"/>
-                                    <constraint firstAttribute="trailing" secondItem="Tp3-cH-APj" secondAttribute="trailing" constant="8" id="p9r-dv-GSM"/>
-                                    <constraint firstItem="Tp3-cH-APj" firstAttribute="leading" secondItem="wch-SU-KZY" secondAttribute="leading" constant="8" id="snI-OJ-hue"/>
+                                    <constraint firstAttribute="bottom" secondItem="Tp3-cH-APj" secondAttribute="bottom" constant="1" id="CJ3-fb-jsD"/>
+                                    <constraint firstItem="Tp3-cH-APj" firstAttribute="top" secondItem="wch-SU-KZY" secondAttribute="top" constant="1" id="d0w-3I-K23"/>
+                                    <constraint firstAttribute="trailing" secondItem="Tp3-cH-APj" secondAttribute="trailing" constant="1" id="p9r-dv-GSM"/>
+                                    <constraint firstItem="Tp3-cH-APj" firstAttribute="leading" secondItem="wch-SU-KZY" secondAttribute="leading" constant="1" id="snI-OJ-hue"/>
                                 </constraints>
                             </view>
                         </subviews>

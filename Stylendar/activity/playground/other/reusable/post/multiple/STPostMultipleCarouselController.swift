@@ -49,9 +49,11 @@ extension STPostMultipleViewController: iCarouselDataSource {
             itemView.frame = carousel.frame
         }
         if let path = data.selector.holder.paths[index], let downloadUrl = data.urls[path], let url = URL(string: downloadUrl) {
+            itemView.postImageView.isHidden = false
             itemView.postImageView.fade(with: url)
         } else {
             itemView.postImageView.image = nil
+            itemView.postImageView.isHidden = true
         }
         
         return itemView

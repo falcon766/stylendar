@@ -105,7 +105,7 @@ platform :ios do
 
   desc 'Build and ship the iOS app to App Center'
   lane :buildToAppCenter do
-    # version = build_adhoc
+    version = build_adhoc
     appcenter_upload(
       generic_appcenter_info.merge(
         app_name: ENV['APP_CENTER_APP_NAME_IOS'],
