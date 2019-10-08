@@ -24,6 +24,9 @@ extension STSettingsViewController {
             goto(viewController: STPrivacyViewController.self)
             break
         case 3:
+            didTapInviteButton()
+        break
+        case 4:
             didTapLogoutButton()
             break
         default:
@@ -47,5 +50,20 @@ extension STSettingsViewController {
             strongSelf.logout()
         }))
         self.present(alertController, animated: true, completion: nil)
+    }
+
+    /**
+     * Invite friends
+     */
+    func didTapInviteButton() {
+        let sharingText = "Hey! I’m on Stylendar as \(STUser.shared.name.full ?? ""). Install the app so we can share our OOTDs! \("itms-apps://itunes.apple.com/app/1263156515?mt=8")"
+        let activityViewController = UIActivityViewController(activityItems: [sharingText], applicationActivities: nil)
+        activityViewController.excludedActivityTypes = [.airDrop, .addToReadingList, .assignToContact, .openInIBooks, .postToFlickr, .postToVimeo, .saveToCameraRoll]
+        /**
+         * Avoid crash on ipad
+         */
+        activityViewController.popoverPresentationController?.sourceView = self.view
+
+        present(activityViewController, animated: true, completion: nil)
     }
 }
