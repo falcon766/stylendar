@@ -63,7 +63,7 @@
                                 </connections>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.47843137250000001" green="0.63921568630000003" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.54758548736572266" green="0.6982542872428894" blue="0.74423068761825562" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="BfR-uw-XBW" secondAttribute="trailing" id="27T-bA-ZAF"/>
                             <constraint firstItem="jCM-AQ-KKg" firstAttribute="top" secondItem="BfR-uw-XBW" secondAttribute="bottom" id="7Uc-K9-kC7"/>

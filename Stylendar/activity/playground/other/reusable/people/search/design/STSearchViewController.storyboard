@@ -18,7 +18,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="6au-hC-RzP">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" red="0.47843137250000001" green="0.63921568630000003" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.47843137254901957" green="0.63921568627450975" blue="0.69019607843137254" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="Afs-BU-ZS7" userLabel="DummyHeaderView">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -37,7 +37,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.47843137250000001" green="0.63921568630000003" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.47843137254901957" green="0.63921568627450975" blue="0.69019607843137254" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6au-hC-RzP" firstAttribute="bottom" secondItem="oZe-o7-MeX" secondAttribute="bottom" id="Bpg-SI-v60"/>
                             <constraint firstItem="6au-hC-RzP" firstAttribute="trailing" secondItem="oZe-o7-MeX" secondAttribute="trailing" id="dKf-Oc-BrO"/>

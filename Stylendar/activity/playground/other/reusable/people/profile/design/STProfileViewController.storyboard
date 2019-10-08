@@ -139,7 +139,7 @@
                                 </connections>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" red="0.47843137250000001" green="0.63921568630000003" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.54758548736572266" green="0.6982542872428894" blue="0.74423068761825562" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="st3-qs-Dep" firstAttribute="top" secondItem="K4K-Mq-I2s" secondAttribute="top" id="8Zx-Tl-cZn"/>
                             <constraint firstItem="st3-qs-Dep" firstAttribute="leading" secondItem="K4K-Mq-I2s" secondAttribute="leading" id="DtW-Gg-PSA"/>

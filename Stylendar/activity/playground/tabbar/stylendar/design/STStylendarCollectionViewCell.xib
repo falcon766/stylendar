@@ -57,7 +57,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.47843137250000001" green="0.63921568630000003" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.47843137254901957" green="0.63921568627450975" blue="0.69019607843137254" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="IKX-tg-QAs" firstAttribute="centerY" secondItem="NE5-gn-dEp" secondAttribute="centerY" id="NWV-Hm-Nk0"/>
                             <constraint firstItem="IKX-tg-QAs" firstAttribute="centerX" secondItem="NE5-gn-dEp" secondAttribute="centerX" id="pyq-Hd-OXf"/>

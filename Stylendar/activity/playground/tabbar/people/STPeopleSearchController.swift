@@ -20,7 +20,7 @@ extension STPeopleViewController {
         searchController = UISearchController(searchResultsController: searchViewController)
         searchController.searchResultsUpdater = searchViewController
         searchController.delegate = self
-        searchController.dimsBackgroundDuringPresentation = true
+        searchController.dimsBackgroundDuringPresentation = false
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchBar.tintColor = .white
         searchController.searchBar.subviews[0].subviews.compactMap(){ $0 as? UITextField }.first?.tintColor = .white
@@ -33,6 +33,25 @@ extension STPeopleViewController {
             navigationItem.searchController = searchController
         } else {
             navigationItem.titleView = searchController.searchBar
+        }
+
+        /**
+         * Annoying iOS 13 black at notch of iphone x. Read more: https://stackoverflow.com/questions/56556254/in-ios13-the-status-bar-background-colour-is-different-from-the-navigation-bar-i?noredirect=1&lq=1
+         */
+        if #available(iOS 13.0, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = .main
+            appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+            appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+
+            navigationController?.navigationBar.standardAppearance = appearance
+            navigationController?.navigationBar.compactAppearance = appearance
+            navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        } else {
+            navigationController?.navigationBar.tintColor = .white
+            navigationController?.navigationBar.barTintColor = .main
+            navigationController?.navigationBar.isTranslucent = false
         }
     }
 }

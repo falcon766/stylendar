@@ -104,7 +104,7 @@
                     <constraint firstItem="tuT-wR-fms" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iyh-V4-5my" secondAttribute="trailing" constant="4" id="uXN-Zr-Khg"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" red="0.47843137250000001" green="0.63921568630000003" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.47843137254901957" green="0.63921568627450975" blue="0.69019607843137254" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <connections>
                 <outlet property="buttonView" destination="tuT-wR-fms" id="7lV-dy-j83"/>
                 <outlet property="nameLabel" destination="g0z-gV-7bx" id="Zck-N5-nbO"/>
