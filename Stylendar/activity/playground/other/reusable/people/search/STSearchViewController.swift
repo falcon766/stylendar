@@ -19,15 +19,19 @@ class STSearchViewController: STViewController, STSearchableViewController {
      */
     var state: STSearchableViewControllerState = .startup {
         didSet {
-            if state == .buffering {
-                UIApplication.shared.isNetworkActivityIndicatorVisible = true
-                tableView.isScrollEnabled = false
+            DispatchQueue.main.async {[weak self] in
+                guard let strongSelf = self else {return}
+                if strongSelf.state == .buffering {
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = true
+                    strongSelf.tableView.isScrollEnabled = false
+                }
+
+                if strongSelf.state == .idle {
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                    strongSelf.tableView.isScrollEnabled = true
+                }
             }
-            
-            if state == .idle {
-                UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                tableView.isScrollEnabled = true
-            }
+
         }
     }
 
