@@ -14,6 +14,24 @@ extension STPeopleViewController {
      */
     func appendNavigationBar() {
         navigationItem.title = NSLocalizedString("People", comment: "")
-        navigationController?.navigationBar.shadowImage = UIColor.divider.as1ptImage()
+        /**
+         * Annoying iOS 13 black at notch of iphone x. Read more: https://stackoverflow.com/questions/56556254/in-ios13-the-status-bar-background-colour-is-different-from-the-navigation-bar-i?noredirect=1&lq=1
+         */
+        if #available(iOS 13.0, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = .main
+            appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+            appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+            appearance.shadowImage =  UIColor.divider.as1ptImage()
+            navigationController?.navigationBar.standardAppearance = appearance
+            navigationController?.navigationBar.compactAppearance = appearance
+            navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        } else {
+            navigationController?.navigationBar.tintColor = .white
+            navigationController?.navigationBar.barTintColor = .main
+            navigationController?.navigationBar.isTranslucent = false
+            navigationController?.navigationBar.shadowImage = UIColor.divider.as1ptImage()
+        }
     }
 }
