@@ -20,7 +20,7 @@ extension STPeopleViewController {
         searchController = UISearchController(searchResultsController: searchViewController)
         searchController.searchResultsUpdater = searchViewController
         searchController.delegate = self
-        searchController.dimsBackgroundDuringPresentation = false
+        searchController.dimsBackgroundDuringPresentation = true
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchBar.tintColor = .white
         searchController.searchBar.subviews[0].subviews.compactMap(){ $0 as? UITextField }.first?.tintColor = .white
