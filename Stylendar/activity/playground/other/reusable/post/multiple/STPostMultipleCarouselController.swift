@@ -54,8 +54,8 @@ extension STPostMultipleViewController: iCarouselDataSource {
         } else {
             itemView.postImageView.image = nil
             itemView.postImageView.isHidden = true
-            itemView.fillerView.backgroundColor = data.selector.todayIndex == index ? UIColor.main : UIColor.appGray
-            itemView.logoImageView.image = data.selector.todayIndex == index ? UIImage(named: "logo-white") : UIImage(named: "logo-blue")
+            itemView.fillerView.backgroundColor = data.selector.todayIndex != index ? UIColor.main : UIColor.appGray
+            itemView.logoImageView.image = data.selector.todayIndex != index ? UIImage(named: "logo-white") : UIImage(named: "logo-blue")
         }
         
         return itemView
