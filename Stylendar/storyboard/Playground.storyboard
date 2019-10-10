@@ -496,7 +496,7 @@
                             <constraint firstItem="jlV-67-x5P" firstAttribute="top" secondItem="qXO-1h-TZd" secondAttribute="top" id="vUe-nd-abX"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Stylendar" image="ic_stylendar" id="vrc-Cg-DcV"/>
+                    <tabBarItem key="tabBarItem" title="" image="ic_stylendar" id="vrc-Cg-DcV"/>
                     <navigationItem key="navigationItem" id="sCu-27-dar">
                         <barButtonItem key="backBarButtonItem" title=" " id="jVB-nL-fEv"/>
                     </navigationItem>

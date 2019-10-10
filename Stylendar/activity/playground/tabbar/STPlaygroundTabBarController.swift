@@ -27,8 +27,19 @@ class STPlaygroundTabBarController: UITabBarController, UITabBarControllerDelega
          *  Really don't know what can't they default this...
          */
         delegate = self
+        /**
+         * Fix bug tabBarItem don't align vertical center on <ios 13.0
+         */
+        if #available(iOS 10.0, *){
+            if #available(iOS 13.0, *) {} else {
+                for tabBarItem in tabBar.items ?? [] {
+                    tabBarItem.title = "";
+                    tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
+                }
+            }
+        } 
     }
-        
+
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         guard let tabIndex = tabBarController.viewControllers?.index(of: viewController) else { return true }
         
