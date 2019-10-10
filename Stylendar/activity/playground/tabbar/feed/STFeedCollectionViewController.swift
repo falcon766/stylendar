@@ -89,7 +89,7 @@ extension STFeedViewController: UICollectionViewDataSource {
         /**
          *  Set it on the cell.
          */
-        cell.usernameLabel.text = post.sender.username?.uppercased()
+        cell.usernameLabel.text = post.sender.username
 
         if let profileImageUrlString = post.sender.profileImageUrl, let profileImageUrl = URL(string: profileImageUrlString) {
             cell.profileImageView.fade(with: profileImageUrl, completion: { (success) in })
@@ -152,7 +152,7 @@ extension STFeedViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (STDevice.width - 18) / 2
+        let width = (STDevice.width - 12) / 2
         return CGSize(width: width, height: width * 5 / 3.5)
     }
     
@@ -161,7 +161,7 @@ extension STFeedViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 6
+        return 0
     }
 }
 
