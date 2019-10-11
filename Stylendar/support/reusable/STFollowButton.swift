@@ -23,10 +23,14 @@ enum STFollowState: Int {
     pending = 1,
     following = 2
 }
-
+enum STFollowStyle {
+    case short
+    case full
+}
 class STFollowButton: UIButton {
     fileprivate static let followText: String = "FOLLOW"
-    fileprivate static let pendingText: String = "PENDING"
+    fileprivate static let pendingText: String = "Cancel request"
+    fileprivate static let fullPendingText: String = "Cancel pending follow request"
     fileprivate static let unfollowText: String = "UNFOLLOW"
     
     /**
@@ -38,6 +42,7 @@ class STFollowButton: UIButton {
      */
     var isUserFollowed: STFollowState = .notfollowing
     var isStylendarPublic: Bool = false
+    var style: STFollowStyle = .short
     
     weak var delegate: STFollowButtonDelegate?
     var uid: String?
@@ -46,16 +51,9 @@ class STFollowButton: UIButton {
      *  We initialize the button. We set by default 105 because that's the width a button needs to accomodate `UNFOLLOW` on the bold
      *  system font with 17 pts size (tested on IB). Anyway, it's actually 97, but we've added 8 pts just in case for margins.
      */
-    init(uid: String, isUserFollowed: STFollowState, isStylendarPublic: Bool) {
-        super.init(frame: CGRect(x: 0, y: 0, width: 105, height: 32))
-        self.uid = uid
-        self.isUserFollowed = isUserFollowed
-        self.isStylendarPublic = isStylendarPublic
-        
-        /**
-         *  Initial configuration.
-         */
-        setTitle()
+    init(uid: String, isUserFollowed: STFollowState, isStylendarPublic: Bool, style: STFollowStyle = .short) {
+        super.init(frame: CGRect(x: 0, y: 0, width: 120, height: 32))
+        setup(uid: uid, isUserFollowed: isUserFollowed, isStylendarPublic: isStylendarPublic, style: style)
         titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
         titleLabel?.sizeToFit()
         
@@ -63,7 +61,19 @@ class STFollowButton: UIButton {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
+        addTarget(self, action: #selector(toggle), for: .touchDown)
+    }
+
+    func setup(uid: String, isUserFollowed: STFollowState, isStylendarPublic: Bool, style: STFollowStyle = .short) {
+        self.uid = uid
+        self.isUserFollowed = isUserFollowed
+        self.isStylendarPublic = isStylendarPublic
+        self.style = style
+        /**
+         *  Initial configuration.
+         */
+        setTitle()
     }
     
     /**
@@ -76,7 +86,8 @@ class STFollowButton: UIButton {
         setTitle(STFollowButton.followText, for: .normal)
     }
     func setPendingTitle() {
-        setTitle(STFollowButton.pendingText, for: .normal)
+        let text = style == .short ? STFollowButton.pendingText : STFollowButton.fullPendingText
+        setTitle(text.uppercased(), for: .normal)
     }
     func setUnfollowTitle() {
         setTitle(STFollowButton.unfollowText, for: .normal)

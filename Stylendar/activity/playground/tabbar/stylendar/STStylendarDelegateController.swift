@@ -19,6 +19,9 @@ extension STStylendarViewController: STViewControllerDelegate {
         let storyboard = UIStoryboard(name: String(describing: STProfileViewController.self), bundle: .main)
         guard let profileViewController = storyboard.instantiateInitialViewController() as? STProfileViewController else { return }
         profileViewController.data.user = data.user
+        profileViewController.followDelegate = self
+        profileViewController.isStylendarPublic = data.isStylendarPublic
+        profileViewController.isUserFollowed = data.isUserFollowed
         show(profileViewController, sender: self)
     }
     

@@ -14,6 +14,9 @@ class STProfileViewController: STViewController {
      *  The source of truth for the view controller.
      */
     var data = STProfileData()
+    var followDelegate: STFollowButtonDelegate?
+    var isStylendarPublic = true
+    var isUserFollowed: STFollowState = .notfollowing
     
     /**
      *  The views.
@@ -24,7 +27,8 @@ class STProfileViewController: STViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var bioLabel: UILabel!
     @IBOutlet weak var followersLabel: UILabel!
-    
+    @IBOutlet weak var followButton: STFollowButton!
+
     /**
      *  Override 'viewDidLoad'.
      */
@@ -51,6 +55,10 @@ class STProfileViewController: STViewController {
          *  @located in STProfileNetwork.swift
          */
         retrieve()
+        /**
+         * setup follow button
+         */
+        setupFollowButton()
         
 //        dump(UIFont.familyNames)
     }
@@ -100,5 +108,19 @@ class STProfileViewController: STViewController {
         super.didReceiveMemoryWarning()
     }
 
+    func setupFollowButton() {
+        guard let uid = data.user.uid else { return }
+        followButton.setup(uid: uid, isUserFollowed: isUserFollowed, isStylendarPublic: isStylendarPublic, style: .full)
+        followButton.delegate = self
+    }
 }
 
+extension STProfileViewController: STFollowButtonDelegate {
+    func didTapFollowButton(_ followButton: STFollowButton) {
+        let state = followButton.isUserFollowed
+        var followers = Int(followersLabel.text ?? "0") ?? 0
+        followers = state == .notfollowing && isStylendarPublic ? followers + 1 :  state == .following ? followers - 1 : followers
+        followersLabel.text = "\(followers)"
+        followDelegate?.didTapFollowButton(followButton)
+    }
+}

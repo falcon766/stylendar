@@ -62,7 +62,8 @@ extension STStylendarViewController {
          */
         firstly {
             when(fulfilled: followerPromise, followingPromise)
-            }.then { (results) -> Void in
+            }.then {[weak self] (results) -> Void in
+                self?.data.isUserFollowed = self?.data.isStylendarPublic ?? true ? .following : .pending
 //                print("\(#function): follow request finished successfully")
             }.catch { (error) in
                 self.failure(error)
@@ -112,7 +113,8 @@ extension STStylendarViewController {
                 let requestDeletePromise = PromiseKit.wrap{requestDeleteRef.removeValue(completionBlock: $0)}
                 
                 return requestDeletePromise
-            }.then { (results) -> Void in
+            }.then {[weak self] (results) -> Void in
+                self?.data.isUserFollowed = .notfollowing
 //                print("\(#function): follow request finished successfully")
             }.catch { (error) in
                 self.failure(error)
@@ -179,13 +181,15 @@ extension STStylendarViewController {
                 let followingDeletePromise = PromiseKit.wrap{followingDeleteRef.removeValue(completionBlock: $0)}
                 
                 return when(fulfilled: followerDeletePromise, followingDeletePromise)
-            }.then { (results) -> Void in
+            }.then {[weak self] (results) -> Void in
 //                print("\(#function): follow request finished successfully")
                 
                 /**
                  *  We wish to display the empty table view if the owner's account is set to private and now the user isn't a follower anymore.
                  */
-                if !self.data.isStylendarPublic { self.appendTableEmptyView() }
+                guard let strongSelf = self else {return}
+                strongSelf.data.isUserFollowed = .notfollowing
+                if !strongSelf.data.isStylendarPublic { strongSelf.appendTableEmptyView() }
             }.catch { (error) in
                 self.failure(error)
         }

@@ -106,6 +106,10 @@ class STStylendarViewController: STViewController {
         selector: #selector(self.updateHighlightedDay),
         name: UserNotificationsUpdateCurrentDateNotification,
         object:  nil)
+        /**
+         * reload follow button after show profile of this person
+         */
+        appendFollowButton()
     }
     
     /**

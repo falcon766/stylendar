@@ -17,7 +17,7 @@ extension STProfileViewController {
         /**
          *  Set the data on the views.
          */
-        usernameLabel.text = user["username"] as? String
+        usernameLabel.text = (user["username"] as? String)?.uppercased()
         bioLabel.text = (user["bio"] as? String)?.fixWhitespaces()
         followersLabel.text = "\(followersCount)"
         
