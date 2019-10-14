@@ -200,6 +200,7 @@
                     <connections>
                         <outlet property="bioLabel" destination="FUl-2z-x0z" id="zAC-cO-jR7"/>
                         <outlet property="followButton" destination="AmD-Yo-EJl" id="ZSI-Tf-aly"/>
+                        <outlet property="followView" destination="HN7-fC-HzN" id="fQN-mG-olc"/>
                         <outlet property="followersLabel" destination="1tM-Fi-JNV" id="64x-Wt-QyO"/>
                         <outlet property="nameLabel" destination="I3f-wY-80Z" id="Cnh-dN-1NG"/>
                         <outlet property="profileImageView" destination="tLg-JH-Flx" id="mmp-6U-zs8"/>

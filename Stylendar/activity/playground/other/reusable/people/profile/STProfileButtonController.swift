@@ -14,6 +14,20 @@ extension STProfileViewController {
      *  Called when the flag bar button item (top right) was tapped.
      */
     @objc func didTapFlagBarButtonItem() {
+        switch displayMode {
+        case .otherPeople:
+            showSTReportViewController()
+        case .mySelf:
+            showSTBioViewController()
+        }
+    }
+    
+    private func showSTBioViewController(){
+        goto(viewController: STBioViewController.self)
+    }
+        
+    
+    private func showSTReportViewController()  {
         let storyboard = UIStoryboard(name: String(describing: STReportViewController.self), bundle: .main)
         guard let reportViewController = storyboard.instantiateInitialViewController() as? STReportViewController else { return }
         reportViewController.data.user = data.user

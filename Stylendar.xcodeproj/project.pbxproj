@@ -24,6 +24,7 @@
 		13518F5A234597E500BC3DCD /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13518F4D234597E500BC3DCD /* Roboto-Bold.ttf */; };
 		13518F5B234597E500BC3DCD /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13518F4E234597E500BC3DCD /* Roboto-Thin.ttf */; };
 		13518F5C234597E500BC3DCD /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13518F4F234597E500BC3DCD /* Roboto-Black.ttf */; };
+		1809FA38235420CA00DE7001 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1809FA37235420CA00DE7001 /* UIViewController+Ext.swift */; };
 		1D95AEF7D1AED6219C6DC536 /* Pods_StylendarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D1B6953E1F67764BAB88A62 /* Pods_StylendarTests.framework */; };
 		46C4D56D1F83A0CC00DDFE6B /* STPeopleTransitionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C4D56C1F83A0CC00DDFE6B /* STPeopleTransitionController.swift */; };
 		46F1B79A1F87D81E000E6C68 /* STVeins+Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F1B7991F87D81E000E6C68 /* STVeins+Request.swift */; };
@@ -326,6 +327,7 @@
 		13518F4D234597E500BC3DCD /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		13518F4E234597E500BC3DCD /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
 		13518F4F234597E500BC3DCD /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
+		1809FA37235420CA00DE7001 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		23BDCE9B00CCA6EBC66C6093 /* Pods-Stylendar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stylendar.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stylendar/Pods-Stylendar.release.xcconfig"; sourceTree = "<group>"; };
 		46C4D56C1F83A0CC00DDFE6B /* STPeopleTransitionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STPeopleTransitionController.swift; sourceTree = "<group>"; };
 		46F1B7991F87D81E000E6C68 /* STVeins+Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "STVeins+Request.swift"; sourceTree = "<group>"; };
@@ -651,6 +653,22 @@
 			path = Roboto;
 			sourceTree = "<group>";
 		};
+		1809FA352354209200DE7001 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				1809FA36235420A500DE7001 /* Extensions */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		1809FA36235420A500DE7001 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1809FA37235420CA00DE7001 /* UIViewController+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		53038A6D1F382FC600686898 /* reusable */ = {
 			isa = PBXGroup;
 			children = (
@@ -865,6 +883,7 @@
 		53317D5E1F2321EA003B383B /* Stylendar */ = {
 			isa = PBXGroup;
 			children = (
+				1809FA352354209200DE7001 /* Manager */,
 				539F8FE71F4B681600D60E5D /* Stylendar.entitlements */,
 				53317D5F1F2321EA003B383B /* activity */,
 				53317E481F2321EA003B383B /* data */,
@@ -2161,6 +2180,7 @@
 				53317FAB1F2321EA003B383B /* STTableViewCell.swift in Sources */,
 				5325DE071F26782C004D0D64 /* STSignUpNavigationBarController.swift in Sources */,
 				531AC7F51F52A92B00583A2B /* STChangeEmailTableViewController.swift in Sources */,
+				1809FA38235420CA00DE7001 /* UIViewController+Ext.swift in Sources */,
 				5341E9891F272A5F006E5CDE /* STSignUpMediaController.swift in Sources */,
 				531AC7F61F52A92B00583A2B /* STChangeEmailTextFieldController.swift in Sources */,
 				531AC7E81F52A92B00583A2B /* STPeopleData.swift in Sources */,

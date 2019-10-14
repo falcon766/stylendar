@@ -59,3 +59,8 @@ extension STConstant {
     static let kSTElasticSearchPassword = "v3H1GoME"
 }
 
+enum SBName:String {
+    case Main = "Main"
+    case Call = "Call"
+}
+

@@ -61,6 +61,12 @@ class STViewController: UIViewController {
      */
     override func viewDidLoad() {
         super.viewDidLoad()
+        /*
+         *  Print current Viewcontroller.
+         */
+        #if DEBUG
+            currentViewController()
+        #endif
         
         /**
          *  SVProgressHUD customization.
@@ -105,6 +111,12 @@ class STViewController: UIViewController {
     @objc func didTapBackground() {
         view.endEditing(true)
     }
+    
+    private func currentViewController(){
+        let stringClass = String(describing: type(of:self ))
+        print("==>Current Class: \(stringClass)")
+    }
+
 }
 
 extension UIViewController: UIGestureRecognizerDelegate {

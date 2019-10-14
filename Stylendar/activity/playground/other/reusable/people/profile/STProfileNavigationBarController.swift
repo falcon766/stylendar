@@ -22,7 +22,10 @@ extension STProfileViewController {
      *  Appends the configured navigation bar buttons to the view controller.
      */
     func appendNavigationBarButton() {
-        let flagBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "ic_flag"), style: .done, target: self, action: #selector(didTapFlagBarButtonItem))
+        let flagBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: displayMode.iconNameRightBar),
+                                                style: .done,
+                                                target: self,
+                                                action: #selector(didTapFlagBarButtonItem))
         flagBarButtonItem.tintColor = .white
         navigationItem.rightBarButtonItem = flagBarButtonItem
     }

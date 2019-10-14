@@ -15,7 +15,7 @@ extension STSettingsViewController {
         
         switch indexPath.row {
         case 0:
-            goto(viewController: STBioViewController.self)
+            gotoSTProfileViewController()
             break
         case 1:
             goto(viewController: STChangePasswordViewController.self)
@@ -65,5 +65,16 @@ extension STSettingsViewController {
         activityViewController.popoverPresentationController?.sourceView = self.view
 
         present(activityViewController, animated: true, completion: nil)
+    }
+    
+    func gotoSTProfileViewController()  {
+          let storyboard = UIStoryboard(name: String(describing: STProfileViewController.self), bundle: .main)
+          guard let profileViewController = storyboard.instantiateInitialViewController() as? STProfileViewController else { return }
+            profileViewController.data.user = STUser.shared
+            profileViewController.displayMode = .mySelf
+          //profileViewController.followDelegate = self
+          //profileViewController.isStylendarPublic = data.isStylendarPublic
+          //profileViewController.isUserFollowed = data.isUserFollowed
+          show(profileViewController, sender: self)
     }
 }

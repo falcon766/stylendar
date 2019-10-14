@@ -8,6 +8,22 @@
 
 import UIKit
 
+enum STProfileDisplayMode {
+    case mySelf
+    case otherPeople
+    
+    var iconNameRightBar:String{
+        get{
+            switch self {
+            case .mySelf:
+                return "ic_compose";
+            case .otherPeople:
+                return "ic_flag";
+            }
+        }
+    }
+}
+
 class STProfileViewController: STViewController {
     
     /**
@@ -17,6 +33,8 @@ class STProfileViewController: STViewController {
     var followDelegate: STFollowButtonDelegate?
     var isStylendarPublic = true
     var isUserFollowed: STFollowState = .notfollowing
+    var displayMode:STProfileDisplayMode = .otherPeople
+    
     
     /**
      *  The views.
@@ -28,6 +46,7 @@ class STProfileViewController: STViewController {
     @IBOutlet weak var bioLabel: UILabel!
     @IBOutlet weak var followersLabel: UILabel!
     @IBOutlet weak var followButton: STFollowButton!
+    @IBOutlet weak var followView: UIView?
 
     /**
      *  Override 'viewDidLoad'.
@@ -112,6 +131,7 @@ class STProfileViewController: STViewController {
         guard let uid = data.user.uid else { return }
         followButton.setup(uid: uid, isUserFollowed: isUserFollowed, isStylendarPublic: isStylendarPublic, style: .full)
         followButton.delegate = self
+        followView?.isHidden = displayMode == .mySelf
     }
 }
 
