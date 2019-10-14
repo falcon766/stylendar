@@ -34,9 +34,9 @@ extension STPeopleViewController {
         }
         segmentedControl.segmentAppearance = appearance()
         
-        segmentedControl.addSegmentWithTitle(NSLocalizedString("Followers", comment: ""))
-        segmentedControl.addSegmentWithTitle(NSLocalizedString("Following", comment: ""))
-        segmentedControl.addSegmentWithTitle(NSLocalizedString("Requests", comment: ""))
+        segmentedControl.addSegmentWith(title:NSLocalizedString("Followers".uppercased(), comment: ""),subtitle: "0")
+        segmentedControl.addSegmentWith(title:NSLocalizedString("Following".uppercased(), comment: ""),subtitle: "0")
+        segmentedControl.addSegmentWith(title:NSLocalizedString("Requests".uppercased(), comment: ""),subtitle: "0")
         segmentedControl.selectedSegmentIndex = 0
     }
     
@@ -46,6 +46,10 @@ extension STPeopleViewController {
     func updateFollowRequestsBadge(_ count: Int) {
         segmentedControl.updateBadge(forValue: count, andSection: STPeopleViewControllerState.requests.rawValue)
     }
+    
+    func updateFollowBadgeSubtitle(_ count: Int, section:Int) {
+        segmentedControl.updateBadgeSubtitle(forValue: count, andSection: section)
+     }
 }
 
 extension STPeopleViewController {

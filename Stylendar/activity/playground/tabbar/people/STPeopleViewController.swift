@@ -108,8 +108,8 @@ class STPeopleViewController: STViewController {
         /**
          *  @located in STPeopleNetwork.swift
          */
-        retrieveUsers()
         monitorFollowRequests()
+        retrieveUsers()
     }
     
     

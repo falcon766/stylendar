@@ -15,19 +15,46 @@ extension STPeopleViewController {
      */
     func monitorFollowRequests() {
         guard let authId = Auth.auth().currentUser?.uid else { return }
-        let ref = STDatabase
+        let refRequests = STDatabase
             .shared
             .ref
             .child(STVeins.node)
             .child(STVeins.requests.node)
             .child(authId)
         
+        let refFollowers = STDatabase
+             .shared
+             .ref
+             .child(STVeins.node)
+             .child(STVeins.followers.node)
+             .child(authId)
+        
+        let refFollowing = STDatabase
+             .shared
+             .ref
+             .child(STVeins.node)
+             .child(STVeins.following.node)
+             .child(authId)
+        
         /**
          *  Firebase mantains a continuous connection with their servers, so everytime the follow requests count will be updated, we will know.
          */
-        ref.observe(.value, with: { [weak self] (snapshot: DataSnapshot) in
+        refRequests.observe(.value, with: { [weak self] (snapshot: DataSnapshot) in
             guard let strongSelf = self, snapshot.exists() else { return }
-            strongSelf.updateFollowRequestsBadge(Int(snapshot.childrenCount))
+            strongSelf.updateFollowBadgeSubtitle(Int(snapshot.childrenCount),
+                                                 section: STPeopleViewControllerState.requests.rawValue)
+            
+        })
+        refFollowers.observe(.value, with: { [weak self] (snapshot: DataSnapshot) in
+                guard let strongSelf = self, snapshot.exists() else { return }
+                strongSelf.updateFollowBadgeSubtitle(Int(snapshot.childrenCount),
+                                                     section: STPeopleViewControllerState.followers.rawValue)
+        })
+        
+        refFollowing.observe(.value, with: { [weak self] (snapshot: DataSnapshot) in
+                guard let strongSelf = self, snapshot.exists() else { return }
+                strongSelf.updateFollowBadgeSubtitle(Int(snapshot.childrenCount),
+                                                     section: STPeopleViewControllerState.following.rawValue)
         })
     }
 }

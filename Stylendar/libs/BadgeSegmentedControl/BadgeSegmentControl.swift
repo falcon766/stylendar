@@ -113,23 +113,28 @@ open class BadgeSegmentControl: UIControl {
 
     // MARK: - Manage Segment
 
-    public func addSegmentWithTitle(_ title: String,
-                                    onSelectionImage: UIImage? = nil,
-                                    offSelectionImage: UIImage? = nil) {
-        self.insertSegmentWithTitle(title,
-                                    onSelectionImage: onSelectionImage,
-                                    offSelectionImage: offSelectionImage,
-                                    index: self.segments.count)
+    public func addSegmentWith( title: String,
+                                subtitle:String? = nil,
+                                onSelectionImage: UIImage? = nil,
+                                offSelectionImage: UIImage? = nil) {
+        self.insertSegmentWith( title:title,
+                                subtitle:subtitle,
+                                onSelectionImage: onSelectionImage,
+                                offSelectionImage: offSelectionImage,
+                                index: self.segments.count)
     }
 
-    public func insertSegmentWithTitle(_ title: String?,
-                                       onSelectionImage: UIImage?,
-                                       offSelectionImage: UIImage?,
-                                       index: Int) {
+
+    public func insertSegmentWith(title: String?,
+                                  subtitle:String?,
+                                  onSelectionImage: UIImage?,
+                                  offSelectionImage: UIImage?,
+                                  index: Int) {
 
         let segment = BadgeSegmentControlView(appearance: self.segmentAppearance)
 
         segment.title = title
+        segment.subTitle = subtitle
         segment.onSelectionImage = onSelectionImage
         segment.offSelectionImage = offSelectionImage
         segment.index = index
@@ -239,6 +244,10 @@ open class BadgeSegmentControl: UIControl {
     public func updateBadge(forValue value: Int, andSection section: Int) {
         self.segments[section].updateBadgeValue(forValue: value)
     }
+    
+    public func updateBadgeSubtitle(forValue value: Int, andSection section: Int) {
+        self.segments[section].updateSubtitleValue(forValue: value)
+     }
     
     func badgeValue(for section: Int) -> Int {
         return segments[section].badgeValue

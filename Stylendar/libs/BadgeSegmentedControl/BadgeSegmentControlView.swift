@@ -18,6 +18,7 @@ open class BadgeSegmentControlView: UIView {
     fileprivate var imageView: UIImageView = UIImageView()
 
     fileprivate var label: UILabel = UILabel()
+    fileprivate var subLabel: UILabel = UILabel()
 
     fileprivate var badge: BadgeSwift = BadgeSwift()
 
@@ -28,6 +29,16 @@ open class BadgeSegmentControlView: UIView {
         didSet {
             DispatchQueue.main.async(execute: {
                 self.label.text = self.title
+                self.layoutSubviews()
+            })
+        }
+    }
+    
+    // subTitle
+    public var subTitle: String? {
+        didSet {
+            DispatchQueue.main.async(execute: {
+                self.subLabel.text = self.subTitle
                 self.layoutSubviews()
             })
         }
@@ -73,7 +84,9 @@ open class BadgeSegmentControlView: UIView {
 
         // Add label 
         self.label.textAlignment = NSTextAlignment.center
+        self.subLabel.textAlignment = NSTextAlignment.center
         self.addSubview(self.label)
+        self.addSubview(self.subLabel)
 
         // Add badge
         self.addSubview(self.badge)
@@ -91,6 +104,8 @@ open class BadgeSegmentControlView: UIView {
                 self.backgroundColor = appearance.segmentOffSelectionColour
                 self.label.font = appearance.titleOffSelectionFont
                 self.label.textColor = appearance.titleOffSelectionColour
+                self.subLabel.font = appearance.titleOffSelectionFont
+                self.subLabel.textColor = appearance.titleOffSelectionColour
                 self.configureBadge()
                 self.updateBadgeValue(forValue: 0)
                 self.selectionbar.backgroundColor = appearance.selectionBarColor
@@ -128,6 +143,7 @@ open class BadgeSegmentControlView: UIView {
         // If there's no text, align image in the centre
         // Otherwise align text & image in the centre
         self.label.sizeToFit()
+        self.subLabel.sizeToFit()
         let imageWidth = imageViewFrame.size.width
         let labelWidht = self.label.frame.size.width
         if self.label.frame.size.width == 0.0 {
@@ -140,10 +156,15 @@ open class BadgeSegmentControlView: UIView {
 
         // Label 
         self.label.frame = CGRect(x: imageViewFrame.origin.x + imageViewFrame.size.width + distanceBetween,
-                                  y: verticalMargin,
+                                  y: self.subTitle == nil ? verticalMargin : 5,
                                   width: self.label.frame.size.width,
-                                  height: self.frame.size.height - verticalMargin * 2)
-
+                                  height: self.subTitle == nil ? (self.frame.size.height - verticalMargin * 2) :  (self.frame.size.height - verticalMargin * 2) / 2)
+        
+        // subLabel
+        self.subLabel.frame = CGRect(x: self.label.center.x - (self.subLabel.frame.size.width / 2) ,
+                                     y: self.label.frame.maxY,
+                                  width: self.subLabel.frame.size.width,
+                                  height: (self.frame.size.height - verticalMargin * 2) / 2)
         // Badge 
         self.badge.frame.origin.x = self.frame.size.width -
             self.badge.frame.width -
@@ -170,6 +191,7 @@ open class BadgeSegmentControlView: UIView {
             DispatchQueue.main.async(execute: {
                 self.backgroundColor = self.appearance?.segmentOnSelectionColour
                 self.label.textColor = self.appearance?.titleOnSelectionColour
+                self.subLabel.textColor = self.appearance?.titleOnSelectionColour
                 self.imageView.image = self.onSelectionImage
 
                 if self.appearance?.showSelectionBar == true {
@@ -181,6 +203,7 @@ open class BadgeSegmentControlView: UIView {
             DispatchQueue.main.async(execute: {
                 self.backgroundColor = self.appearance?.segmentOffSelectionColour
                 self.label.textColor = self.appearance?.titleOffSelectionColour
+                self.subLabel.textColor = self.appearance?.titleOffSelectionColour
                 self.imageView.image = self.offSelectionImage
 
                 if self.appearance?.showSelectionBar == true {
@@ -283,4 +306,11 @@ open class BadgeSegmentControlView: UIView {
             self.badge.text = nil
         }
     }
+    
+    func updateSubtitleValue(forValue value: Int) {
+        //self.badgeValue = value
+        self.subLabel.text = STUtils.formatNumber(value)
+        self.subLabel.sizeToFit()
+      }
 }
+
