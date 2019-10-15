@@ -152,19 +152,33 @@ extension STStylendarViewController {
             .queryEqual(toValue: uid)
             .queryLimited(toFirst: 1)
         
+        let newsfeedReusableRef =  STDatabase
+            .shared
+            .ref
+            .child(STVeins.node)
+            .child(STVeins.newsfeed.node)
+            .child(selfUid)
+        
+        let newsfeedRef = newsfeedReusableRef
+            .queryOrdered(byChild: STUser.uid)
+            .queryEqual(toValue: uid)
+        
         /**
          *  Create the promises.
          */
         let followerPromise = PromiseKit.wrap{followerRef.observeSingleEvent(of: .value, with: $0)}
         let followingPromise = PromiseKit.wrap{followingRef.observeSingleEvent(of: .value, with: $0)}
+        let newfeedPromise = PromiseKit.wrap{newsfeedRef.observeSingleEvent(of: .value, with: $0)}
 
         firstly {
-            when(fulfilled: followerPromise, followingPromise)
+            when(fulfilled: followerPromise, followingPromise, newfeedPromise)
             }.then{ (snapshots) -> Promise<((Error?, DatabaseReference), (Error?, DatabaseReference))> in
                 /**
                  *  The `children` count is always 1 because we set `queryLimited(toFirst: 1)` above.
                  */
-                guard let followerPushId = (snapshots.0.children.allObjects.first as? DataSnapshot)?.key, let followingPushId = (snapshots.1.children.allObjects.first as? DataSnapshot)?.key else {
+                guard let followerPushId = (snapshots.0.children.allObjects.first as? DataSnapshot)?.key,
+                      let followingPushId = (snapshots.1.children.allObjects.first as? DataSnapshot)?.key,
+                      let feedPushIds = (snapshots.2.children.allObjects as? [DataSnapshot])?.map({$0.key}) else {
                     throw STError.networkError
                 }
                 
@@ -177,9 +191,21 @@ extension STStylendarViewController {
                 let followingDeleteRef = followingReusableRef
                     .child(followingPushId)
                 
+                var newfeedDeleteRefs:[DatabaseReference] = []
+                feedPushIds.forEach({ (id) in
+                    newfeedDeleteRefs.append(newsfeedReusableRef.child(id))
+                })
+                    
+                
                 let followerDeletePromise = PromiseKit.wrap{followerDeleteRef.removeValue(completionBlock: $0)}
                 let followingDeletePromise = PromiseKit.wrap{followingDeleteRef.removeValue(completionBlock: $0)}
-                
+
+                newfeedDeleteRefs.forEach { (feed) in
+                    feed.removeValue { error, _ in
+                        print("Delete error:\(error)")
+                    }
+                }
+
                 return when(fulfilled: followerDeletePromise, followingDeletePromise)
             }.then {[weak self] (results) -> Void in
 //                print("\(#function): follow request finished successfully")
