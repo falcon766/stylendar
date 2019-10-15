@@ -733,7 +733,7 @@
                             <constraint firstItem="RSF-YL-FEa" firstAttribute="top" secondItem="7Yg-bi-3bI" secondAttribute="bottom" id="zt2-Am-AKs"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="People" id="gAX-V5-7R2">
+                    <navigationItem key="navigationItem" id="gAX-V5-7R2">
                         <barButtonItem key="backBarButtonItem" title=" " id="kQV-LQ-t9d"/>
                     </navigationItem>
                     <connections>

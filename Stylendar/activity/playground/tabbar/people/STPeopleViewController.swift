@@ -106,10 +106,9 @@ class STPeopleViewController: STViewController {
         startup()
         
         /**
-         *  @located in STPeopleNetwork.swift
+         *  @located in STPeopleNetwork  + Listener.swift
          */
         monitorFollowRequests()
-        retrieveUsers()
     }
     
     
@@ -123,6 +122,15 @@ class STPeopleViewController: STViewController {
          *  @located in STPeopleNavigationBarController.swift
          */
         appendNavigationBar()
+        
+        /**
+         *   @located in STPeopleNetwork.swift
+         */
+        reload()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
     }
     
     

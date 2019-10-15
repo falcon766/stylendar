@@ -13,6 +13,7 @@ extension STStylendarViewController {
      *  Appends the congigured navigation bar to the view controller.
      */
     func appendNavigationBar() {
+        navigationItem.title = ""
         navigationController?.navigationBar.barTintColor = color
         navigationController?.navigationBar.shadowImage = UIColor.divider.as1ptImage()
     }

@@ -40,19 +40,19 @@ extension STPeopleViewController {
          *  Firebase mantains a continuous connection with their servers, so everytime the follow requests count will be updated, we will know.
          */
         refRequests.observe(.value, with: { [weak self] (snapshot: DataSnapshot) in
-            guard let strongSelf = self, snapshot.exists() else { return }
+            guard let strongSelf = self else { return }
             strongSelf.updateFollowBadgeSubtitle(Int(snapshot.childrenCount),
                                                  section: STPeopleViewControllerState.requests.rawValue)
             
         })
         refFollowers.observe(.value, with: { [weak self] (snapshot: DataSnapshot) in
-                guard let strongSelf = self, snapshot.exists() else { return }
+                guard let strongSelf = self else { return }
                 strongSelf.updateFollowBadgeSubtitle(Int(snapshot.childrenCount),
                                                      section: STPeopleViewControllerState.followers.rawValue)
         })
         
         refFollowing.observe(.value, with: { [weak self] (snapshot: DataSnapshot) in
-                guard let strongSelf = self, snapshot.exists() else { return }
+                guard let strongSelf = self else { return }
                 strongSelf.updateFollowBadgeSubtitle(Int(snapshot.childrenCount),
                                                      section: STPeopleViewControllerState.following.rawValue)
         })

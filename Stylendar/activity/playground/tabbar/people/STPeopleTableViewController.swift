@@ -81,7 +81,6 @@ extension STPeopleViewController: UITableViewDelegate, STUserTableViewCellDelega
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
         /**
          *  The only case where we disallow going to the stylendar in this page is when the user views the follow requests. That list is only for accepting or rejecting.
          */

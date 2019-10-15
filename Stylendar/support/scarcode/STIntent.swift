@@ -76,6 +76,8 @@ class STIntent {
         }
         stylendarViewController.state = .global
         stylendarViewController.data = STStylendarData(user: user)
-        sender.navigationController?.show(stylendarViewController, sender: self)
+        sender.navigationController?.pushViewController(stylendarViewController, animated: true)
+        
+        //show(stylendarViewController, sender: self)
     }
 }
