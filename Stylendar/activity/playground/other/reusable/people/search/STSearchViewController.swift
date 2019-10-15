@@ -13,7 +13,7 @@ protocol STSearchViewControllerDelegate: class {
     func didTap(_ user: STUser)
 }
 
-class STSearchViewController: STViewController, STSearchableViewController {
+class STSearchViewController: UIViewController, STSearchableViewController {
     /**
      *  The `STSearchableViewController` protocol.
      */

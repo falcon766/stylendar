@@ -37,12 +37,13 @@ extension STPeopleViewController {
     }
 }
 
+/*
 extension STPeopleViewController: STSearchViewControllerDelegate {
     func didTap(_ user: STUser) {
         STIntent.gotoStylendar(sender: self, user: user)
     }
 }
-
+*/
 extension STPeopleViewController: UISearchControllerDelegate {
     /**
      *  The search results update delegate.

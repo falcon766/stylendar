@@ -13,7 +13,7 @@ enum STPeopleViewControllerState: Int {
     following = 1,
     requests = 2
 }
-class STPeopleViewController: STViewController {
+class STPeopleViewController: STViewController,UISearchBarDelegate,STSearchViewControllerDelegate {
     
     /**
      *  Tells which tab is currently selected in the segmented control.
@@ -59,7 +59,12 @@ class STPeopleViewController: STViewController {
      */
     @IBOutlet weak var segmentedControl: BadgeSegmentControl!
     @IBOutlet weak var tableView: STTableView!
+    @IBOutlet weak var searchBar: UISearchBar?
+    @IBOutlet weak var btnCancelSearch: UIButton?
+    @IBOutlet weak var vSearchContainer: UIView?
+
     var searchController: UISearchController!
+    var searchViewController:STSearchViewController?
 
     /**
      *  Used to refresh the data on the view controller.
@@ -86,6 +91,11 @@ class STPeopleViewController: STViewController {
         appendLoadingState()
         
         /**
+         *  @located in STPeopleViewController+SearchBar.swift
+         */
+        setupSearchBar()
+        
+        /**
          *  @located in STPeopleTableViewController.swift
          */
         appendTableView()
@@ -93,7 +103,7 @@ class STPeopleViewController: STViewController {
         /**
          *  @located in STPeopleSearchController.swift
          */
-        appendSearchController()
+        //appendSearchController()
         
         /**
          *  @located in STPeopleSegmentedControlController.swift
@@ -133,6 +143,13 @@ class STPeopleViewController: STViewController {
         super.viewDidDisappear(animated)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SearchVC" {
+            searchViewController = segue.destination as? STSearchViewController
+            searchViewController?.searchDelegate = self
+        }
+    }
+    
     
     /**
      *  Override 'didReceiveMemoryWarning'.
@@ -141,4 +158,14 @@ class STPeopleViewController: STViewController {
         super.didReceiveMemoryWarning()
     }
     
+    @IBAction func onbtnClickCancelSearch(btn:UIButton){
+        dismissSearchViewController()
+    }
+    
+    func setupSearchBar()  {
+        self.searchBar?.delegate = self
+        self.searchBar?.backgroundImage = UIImage()
+    }
 }
+
+

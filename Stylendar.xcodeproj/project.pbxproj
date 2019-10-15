@@ -25,6 +25,7 @@
 		13518F5B234597E500BC3DCD /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13518F4E234597E500BC3DCD /* Roboto-Thin.ttf */; };
 		13518F5C234597E500BC3DCD /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13518F4F234597E500BC3DCD /* Roboto-Black.ttf */; };
 		1809FA38235420CA00DE7001 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1809FA37235420CA00DE7001 /* UIViewController+Ext.swift */; };
+		180C6D552355ADD3002C86D7 /* STPeopleViewController+SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180C6D542355ADD3002C86D7 /* STPeopleViewController+SearchBar.swift */; };
 		1D95AEF7D1AED6219C6DC536 /* Pods_StylendarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D1B6953E1F67764BAB88A62 /* Pods_StylendarTests.framework */; };
 		46C4D56D1F83A0CC00DDFE6B /* STPeopleTransitionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C4D56C1F83A0CC00DDFE6B /* STPeopleTransitionController.swift */; };
 		46F1B79A1F87D81E000E6C68 /* STVeins+Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F1B7991F87D81E000E6C68 /* STVeins+Request.swift */; };
@@ -328,6 +329,7 @@
 		13518F4E234597E500BC3DCD /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
 		13518F4F234597E500BC3DCD /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
 		1809FA37235420CA00DE7001 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
+		180C6D542355ADD3002C86D7 /* STPeopleViewController+SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "STPeopleViewController+SearchBar.swift"; sourceTree = "<group>"; };
 		23BDCE9B00CCA6EBC66C6093 /* Pods-Stylendar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stylendar.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stylendar/Pods-Stylendar.release.xcconfig"; sourceTree = "<group>"; };
 		46C4D56C1F83A0CC00DDFE6B /* STPeopleTransitionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STPeopleTransitionController.swift; sourceTree = "<group>"; };
 		46F1B7991F87D81E000E6C68 /* STVeins+Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "STVeins+Request.swift"; sourceTree = "<group>"; };
@@ -758,6 +760,7 @@
 				531AC7991F52A92B00583A2B /* STPeopleTableViewController.swift */,
 				46C4D56C1F83A0CC00DDFE6B /* STPeopleTransitionController.swift */,
 				531AC79A1F52A92B00583A2B /* STPeopleViewController.swift */,
+				180C6D542355ADD3002C86D7 /* STPeopleViewController+SearchBar.swift */,
 			);
 			path = people;
 			sourceTree = "<group>";
@@ -1986,6 +1989,7 @@
 				53317FC41F2321EB003B383B /* STString.swift in Sources */,
 				531AC7ED1F52A92B00583A2B /* STPeopleSearchController.swift in Sources */,
 				53A863521F5999E1001D8BCE /* STProfileAnimationController.swift in Sources */,
+				180C6D552355ADD3002C86D7 /* STPeopleViewController+SearchBar.swift in Sources */,
 				53D3328B1F45A0D500184314 /* STVeins+NewsFeed.swift in Sources */,
 				53F52AAE1F4F117000C7F180 /* STPostMultipleData+Startup.swift in Sources */,
 				531AC81B1F52A92B00583A2B /* STStylendarCollectionViewController.swift in Sources */,
