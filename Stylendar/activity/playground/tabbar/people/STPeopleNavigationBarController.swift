@@ -24,7 +24,7 @@ extension STPeopleViewController {
             appearance.backgroundColor = .main
             appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
             appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-            appearance.shadowImage = UIColor.clear.as1ptImage()
+            appearance.shadowImage = UIColor.main.as1ptImage()
             navigationController?.navigationBar.standardAppearance = appearance
             navigationController?.navigationBar.compactAppearance = appearance
             navigationController?.navigationBar.scrollEdgeAppearance = appearance
@@ -32,7 +32,8 @@ extension STPeopleViewController {
             navigationController?.navigationBar.tintColor = .white
             navigationController?.navigationBar.barTintColor = .main
             navigationController?.navigationBar.isTranslucent = false
-            navigationController?.navigationBar.shadowImage = UIColor.clear.as1ptImage()
+            navigationController?.navigationBar.shadowImage = UIColor.main.as1ptImage()
+            navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         }
     }
 }

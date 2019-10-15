@@ -173,7 +173,14 @@ class STPeopleViewController: STViewController,UISearchBarDelegate,STSearchViewC
     func setupSearchBar()  {
         self.searchBar?.delegate = self
         self.searchBar?.backgroundImage = UIImage()
-        self.searchBar?.searchTextField.textColor = UIColor.white
+        if #available(iOS 13, *) {
+            self.searchBar?.searchTextField.textColor = UIColor.white
+        }else {
+            if let searchField = self.searchBar?.value(forKey: "searchField") as? UITextField {
+                searchField.textColor = .white
+                searchField.tintColor = .white
+            }
+        }
         self.searchBar?.tintColor = .white
     }
 }
