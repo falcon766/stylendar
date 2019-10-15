@@ -14,15 +14,13 @@ import UIKit
 extension STPeopleViewController{
 
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-        searchViewController?.updateSearchResults(textSearch: "")
+        searchViewController?.updateSearchResults(textSearch: searchBar.text)
         btnCancelSearch?.isHidden = false
         vSearchContainer?.isHidden = false
         return true
     }
 
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        searchViewController?.tableView.backgroundColor = UIColor.clear
-        dismissSearchViewController()
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -34,7 +32,6 @@ extension STPeopleViewController{
 //MARK: - STSearchViewControllerDelegate
 extension STPeopleViewController {
     func didTap(_ user: STUser) {
-        dismissSearchViewController()
         STIntent.gotoStylendar(sender: self, user: user)
     }
     

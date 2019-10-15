@@ -150,6 +150,14 @@ class STPeopleViewController: STViewController,UISearchBarDelegate,STSearchViewC
         }
     }
     
+    override func didTapBackground() {
+        if searchBar?.text?.isValid ?? true {
+            return
+        }
+        view.endEditing(true)
+        dismissSearchViewController()
+    }
+    
     
     /**
      *  Override 'didReceiveMemoryWarning'.

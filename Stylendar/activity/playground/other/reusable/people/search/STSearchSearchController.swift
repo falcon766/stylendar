@@ -61,7 +61,7 @@ extension STSearchViewController: UISearchResultsUpdating {
             data.users = []
             state = .startup
             tableView.reloadData()
-            tableView.backgroundColor = UIColor.clear
+            tableView.backgroundColor = UIColor.black.withAlphaComponent(0.2)
             return
         }
         /**

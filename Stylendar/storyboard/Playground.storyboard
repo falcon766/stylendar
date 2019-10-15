@@ -897,12 +897,17 @@
                                     <constraint firstItem="C65-hI-Ca6" firstAttribute="top" secondItem="mdA-46-Age" secondAttribute="top" id="sH9-WW-8rq"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SGy-EA-XMD">
-                                <rect key="frame" x="0.0" y="50" width="375" height="0.5"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SGy-EA-XMD" userLabel="vLine">
+                                <rect key="frame" x="0.0" y="50" width="375" height="1"/>
+                                <color key="backgroundColor" red="0.33725490196078434" green="0.45490196078431372" blue="0.47058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="0.59999999999999998" id="YmC-HI-ACX"/>
+                                    <constraint firstAttribute="height" constant="1" id="YmC-HI-ACX"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderUIColor">
+                                        <color key="value" red="0.33725490196078434" green="0.45490196078431372" blue="0.47058823529411764" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n27-RC-mY3" customClass="BadgeSegmentControl" customModule="Stylendar" customModuleProvider="target">
                                 <rect key="frame" x="8" y="62" width="359" height="50"/>
@@ -931,7 +936,7 @@
                                 </connections>
                             </tableView>
                             <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XwN-NZ-aFc">
-                                <rect key="frame" x="0.0" y="55" width="375" height="519"/>
+                                <rect key="frame" x="0.0" y="51" width="375" height="523"/>
                                 <connections>
                                     <segue destination="v1z-jv-rMQ" kind="embed" identifier="SearchVC" id="7DE-dC-dSP"/>
                                 </connections>
@@ -939,7 +944,6 @@
                         </subviews>
                         <color key="backgroundColor" red="0.47843137250000001" green="0.63921568630000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="XwN-NZ-aFc" firstAttribute="top" secondItem="mdA-46-Age" secondAttribute="bottom" constant="5" id="6mm-VK-s7P"/>
                             <constraint firstItem="SGy-EA-XMD" firstAttribute="leading" secondItem="TTZ-8M-2ey" secondAttribute="leading" id="7nO-Gv-FrH"/>
                             <constraint firstItem="ROV-3j-ygl" firstAttribute="top" secondItem="5SI-QI-btt" secondAttribute="bottom" id="BY4-Cw-Xpb"/>
                             <constraint firstItem="5SI-QI-btt" firstAttribute="leading" secondItem="TTZ-8M-2ey" secondAttribute="leading" id="Gjn-2i-b8i"/>
@@ -949,6 +953,7 @@
                             <constraint firstItem="n27-RC-mY3" firstAttribute="leading" secondItem="TTZ-8M-2ey" secondAttribute="leading" constant="8" id="QJA-K6-kLL"/>
                             <constraint firstAttribute="trailing" secondItem="n27-RC-mY3" secondAttribute="trailing" constant="8" id="Tf3-4S-95F"/>
                             <constraint firstAttribute="trailing" secondItem="SGy-EA-XMD" secondAttribute="trailing" id="YyG-FG-Qte"/>
+                            <constraint firstItem="XwN-NZ-aFc" firstAttribute="top" secondItem="SGy-EA-XMD" secondAttribute="bottom" id="bLa-r3-yyl"/>
                             <constraint firstAttribute="trailing" secondItem="XwN-NZ-aFc" secondAttribute="trailing" id="djw-tv-bru"/>
                             <constraint firstAttribute="trailing" secondItem="5SI-QI-btt" secondAttribute="trailing" id="mHg-qP-0Ec"/>
                             <constraint firstItem="XwN-NZ-aFc" firstAttribute="leading" secondItem="TTZ-8M-2ey" secondAttribute="leading" id="mpA-yt-h3g"/>
@@ -978,11 +983,11 @@
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="v1z-jv-rMQ" customClass="STSearchViewController" customModule="Stylendar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7eg-M5-JXh">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="519"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="524"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="CFh-I8-u1O">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="519"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="524"/>
                                 <color key="backgroundColor" red="0.47843137250000001" green="0.63921568630000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="oR0-eM-rFa" userLabel="DummyHeaderView">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
