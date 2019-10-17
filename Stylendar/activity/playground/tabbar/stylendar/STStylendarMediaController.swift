@@ -19,9 +19,11 @@ extension STStylendarViewController: UIImagePickerControllerDelegate, UINavigati
         }
         
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            /* Requirment is don't save photo to PhotosAlbum
             if picker.sourceType == .camera {
                 UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
             }
+             */
             checkSizeAndGo(image: image)
         } else {
             STAlert.top(STString.unknownError, isPositive: false)
