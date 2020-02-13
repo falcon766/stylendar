@@ -110,10 +110,14 @@ class STProfileViewController: STViewController {
              *  Only reset to pink if it's necessary (the stylendar view controller requires it).
              */
             
-            if  let count = navigationController?.viewControllers.count,
-                let stylendarViewController = navigationController?.viewControllers[count-2] as? STStylendarViewController,
+            if  let viewControllers = navigationController?.viewControllers {
+                let findViewControllers = viewControllers.filter { (v) -> Bool in
+                    return  (v as? STStylendarViewController) != nil
+                }
+                if let stylendarViewController = findViewControllers.first as? STStylendarViewController,
                 stylendarViewController.color == .appPink {
-                navigationController?.navigationBar.barTintColor = .appPink
+                    navigationController?.navigationBar.barTintColor = .appPink
+                }
             }
         }
         super.willMove(toParentViewController: parent)
