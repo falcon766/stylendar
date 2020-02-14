@@ -2379,7 +2379,7 @@
 				CODE_SIGN_ENTITLEMENTS = Stylendar/Stylendar.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 17;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 5W9X6M7W27;
 				INFOPLIST_FILE = Stylendar/Info.plist;
@@ -2405,7 +2405,7 @@
 				CODE_SIGN_ENTITLEMENTS = Stylendar/Stylendar.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 17;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Stylendar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
