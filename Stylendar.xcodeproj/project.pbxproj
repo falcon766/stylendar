@@ -24,9 +24,10 @@
 		13518F5A234597E500BC3DCD /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13518F4D234597E500BC3DCD /* Roboto-Bold.ttf */; };
 		13518F5B234597E500BC3DCD /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13518F4E234597E500BC3DCD /* Roboto-Thin.ttf */; };
 		13518F5C234597E500BC3DCD /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13518F4F234597E500BC3DCD /* Roboto-Black.ttf */; };
+		158F4A005F01B026F5710D1F /* Pods_StylendarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C208D61FAB8FA0C74DD4522 /* Pods_StylendarTests.framework */; };
 		1809FA38235420CA00DE7001 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1809FA37235420CA00DE7001 /* UIViewController+Ext.swift */; };
 		180C6D552355ADD3002C86D7 /* STPeopleViewController+SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180C6D542355ADD3002C86D7 /* STPeopleViewController+SearchBar.swift */; };
-		1D95AEF7D1AED6219C6DC536 /* Pods_StylendarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D1B6953E1F67764BAB88A62 /* Pods_StylendarTests.framework */; };
+		28BE7A752E33782307FECA95 /* Pods_Stylendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EDEE8AF28179911E7A74091 /* Pods_Stylendar.framework */; };
 		46C4D56D1F83A0CC00DDFE6B /* STPeopleTransitionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C4D56C1F83A0CC00DDFE6B /* STPeopleTransitionController.swift */; };
 		46F1B79A1F87D81E000E6C68 /* STVeins+Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F1B7991F87D81E000E6C68 /* STVeins+Request.swift */; };
 		53038A6F1F382FDB00686898 /* STProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53038A6E1F382FDB00686898 /* STProfileView.swift */; };
@@ -289,7 +290,9 @@
 		53F52AC81F4F1BA400C7F180 /* STAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F52AC71F4F1BA400C7F180 /* STAdmin.swift */; };
 		53F52ACA1F4F292400C7F180 /* STAdmin+Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F52AC91F4F292400C7F180 /* STAdmin+Report.swift */; };
 		53F954201F2B1195003F4561 /* STEmailVerificationNavigationBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F9541F1F2B1195003F4561 /* STEmailVerificationNavigationBarController.swift */; };
-		B60F976DA29609DC0D9F4873 /* Pods_Stylendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E8C8E9EBD4E606B78544036 /* Pods_Stylendar.framework */; };
+		9D2FD3F823F67BD700DE4042 /* STSaveCameraRollViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D2FD3F723F67BD700DE4042 /* STSaveCameraRollViewController.storyboard */; };
+		9D2FD3FB23F6827100DE4042 /* STSaveCameraRollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2FD3FA23F6827100DE4042 /* STSaveCameraRollViewController.swift */; };
+		9D53B97123F551F3000AA6B8 /* STSaveCameraRollTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D53B97023F551F3000AA6B8 /* STSaveCameraRollTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -310,7 +313,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0D1B6953E1F67764BAB88A62 /* Pods_StylendarTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StylendarTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		133D3AE62344883700871004 /* Credential.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Credential.storyboard; sourceTree = "<group>"; };
 		133D3AE72344883700871004 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		133D3AE82344883700871004 /* Playground.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Playground.storyboard; sourceTree = "<group>"; };
@@ -330,6 +332,8 @@
 		13518F4F234597E500BC3DCD /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
 		1809FA37235420CA00DE7001 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		180C6D542355ADD3002C86D7 /* STPeopleViewController+SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "STPeopleViewController+SearchBar.swift"; sourceTree = "<group>"; };
+		1C208D61FAB8FA0C74DD4522 /* Pods_StylendarTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StylendarTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1EDEE8AF28179911E7A74091 /* Pods_Stylendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stylendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		23BDCE9B00CCA6EBC66C6093 /* Pods-Stylendar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stylendar.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stylendar/Pods-Stylendar.release.xcconfig"; sourceTree = "<group>"; };
 		46C4D56C1F83A0CC00DDFE6B /* STPeopleTransitionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STPeopleTransitionController.swift; sourceTree = "<group>"; };
 		46F1B7991F87D81E000E6C68 /* STVeins+Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "STVeins+Request.swift"; sourceTree = "<group>"; };
@@ -603,7 +607,9 @@
 		53F52AC91F4F292400C7F180 /* STAdmin+Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "STAdmin+Report.swift"; sourceTree = "<group>"; };
 		53F9541F1F2B1195003F4561 /* STEmailVerificationNavigationBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STEmailVerificationNavigationBarController.swift; sourceTree = "<group>"; };
 		7A1B1C1EDC1DFF33C466CEAF /* Pods-StylendarTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StylendarTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StylendarTests/Pods-StylendarTests.release.xcconfig"; sourceTree = "<group>"; };
-		9E8C8E9EBD4E606B78544036 /* Pods_Stylendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stylendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D2FD3F723F67BD700DE4042 /* STSaveCameraRollViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = STSaveCameraRollViewController.storyboard; sourceTree = "<group>"; };
+		9D2FD3FA23F6827100DE4042 /* STSaveCameraRollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STSaveCameraRollViewController.swift; sourceTree = "<group>"; };
+		9D53B97023F551F3000AA6B8 /* STSaveCameraRollTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STSaveCameraRollTableViewCell.swift; sourceTree = "<group>"; };
 		B50761EC701EA99E9DD438A0 /* Pods-StylendarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StylendarTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StylendarTests/Pods-StylendarTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FF09FCEEB3232B428F1F06C9 /* Pods-Stylendar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stylendar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Stylendar/Pods-Stylendar.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -613,7 +619,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B60F976DA29609DC0D9F4873 /* Pods_Stylendar.framework in Frameworks */,
+				28BE7A752E33782307FECA95 /* Pods_Stylendar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -621,7 +627,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D95AEF7D1AED6219C6DC536 /* Pods_StylendarTests.framework in Frameworks */,
+				158F4A005F01B026F5710D1F /* Pods_StylendarTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -768,6 +774,7 @@
 		531AC79B1F52A92B00583A2B /* settings */ = {
 			isa = PBXGroup;
 			children = (
+				9D2FD3F923F6820700DE4042 /* saveCameraRoll */,
 				531AC79C1F52A92B00583A2B /* bio */,
 				531AC7AF1F52A92B00583A2B /* changePassword */,
 				531AC7B81F52A92B00583A2B /* privacy */,
@@ -1626,10 +1633,20 @@
 		8C82659669B7F22AA18AEAEB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9E8C8E9EBD4E606B78544036 /* Pods_Stylendar.framework */,
-				0D1B6953E1F67764BAB88A62 /* Pods_StylendarTests.framework */,
+				1EDEE8AF28179911E7A74091 /* Pods_Stylendar.framework */,
+				1C208D61FAB8FA0C74DD4522 /* Pods_StylendarTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9D2FD3F923F6820700DE4042 /* saveCameraRoll */ = {
+			isa = PBXGroup;
+			children = (
+				9D53B97023F551F3000AA6B8 /* STSaveCameraRollTableViewCell.swift */,
+				9D2FD3FA23F6827100DE4042 /* STSaveCameraRollViewController.swift */,
+				9D2FD3F723F67BD700DE4042 /* STSaveCameraRollViewController.storyboard */,
+			);
+			path = saveCameraRoll;
 			sourceTree = "<group>";
 		};
 		A17CEF607FA06668D0D5AF17 /* Pods */ = {
@@ -1654,8 +1671,8 @@
 				535932DF1F2075DF00D2365A /* Sources */,
 				535932E01F2075DF00D2365A /* Frameworks */,
 				535932E11F2075DF00D2365A /* Resources */,
-				A8FC0CB95983533C42E6EA7E /* [CP] Embed Pods Frameworks */,
 				534C51E11F30A4A5005317C0 /* ShellScript */,
+				EEA562C7544026B15C51C3E6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1674,7 +1691,7 @@
 				53744E0A1F29FB5100C19893 /* Sources */,
 				53744E0B1F29FB5100C19893 /* Frameworks */,
 				53744E0C1F29FB5100C19893 /* Resources */,
-				1146A97926E372C3BA08FE6E /* [CP] Embed Pods Frameworks */,
+				0E1DCDDEA369C44F26D96888 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1794,6 +1811,7 @@
 				53EB282A1F56BF7F00FA9F51 /* STProfileViewController.storyboard in Resources */,
 				13518F5A234597E500BC3DCD /* Roboto-Bold.ttf in Resources */,
 				53F52AA21F4F117000C7F180 /* STSearchViewController.storyboard in Resources */,
+				9D2FD3F823F67BD700DE4042 /* STSaveCameraRollViewController.storyboard in Resources */,
 				538BED411F4F297400AA51BD /* STReportViewController.storyboard in Resources */,
 				531AC8001F52A92B00583A2B /* STBioViewController.storyboard in Resources */,
 				531AC7DB1F52A92B00583A2B /* STFeedCollectionViewCell.xib in Resources */,
@@ -1831,7 +1849,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1146A97926E372C3BA08FE6E /* [CP] Embed Pods Frameworks */ = {
+		0E1DCDDEA369C44F26D96888 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1902,7 +1920,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A8FC0CB95983533C42E6EA7E /* [CP] Embed Pods Frameworks */ = {
+		EEA562C7544026B15C51C3E6 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2014,6 +2032,7 @@
 				531AC7DF1F52A92B00583A2B /* STFeedCollectionViewController.swift in Sources */,
 				534A66011F23627D00AD221B /* STInviteButtonController.swift in Sources */,
 				53317F971F2321EA003B383B /* STParameterEncoding.swift in Sources */,
+				9D53B97123F551F3000AA6B8 /* STSaveCameraRollTableViewCell.swift in Sources */,
 				53A0CD0C1F24D70C00CAA6E9 /* STOnboardingNavigationBarController.swift in Sources */,
 				53317FA61F2321EA003B383B /* STApplication.swift in Sources */,
 				531AC8281F52A92B00583A2B /* STStylendarViewController.swift in Sources */,
@@ -2075,6 +2094,7 @@
 				531AC7E11F52A92B00583A2B /* STFeedData.swift in Sources */,
 				531AC7FE1F52A92B00583A2B /* STBioTableViewController.swift in Sources */,
 				53317FA91F2321EA003B383B /* STNavigationBar+Helper.swift in Sources */,
+				9D2FD3FB23F6827100DE4042 /* STSaveCameraRollViewController.swift in Sources */,
 				53317FA21F2321EA003B383B /* NSObject+LogProperties.m in Sources */,
 				53DB3C241F56EC940018E69A /* STProfileScrollViewController.swift in Sources */,
 				53185A0F1F4B24FB00DD4621 /* BadgeSegmentControl.swift in Sources */,
