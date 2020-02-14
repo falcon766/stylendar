@@ -22,6 +22,7 @@ extension STSettingsViewController {
             goto(viewController: STChangePasswordViewController.self)
             break
         case 2:
+            goto(viewController: STSaveCameraRollViewController.self)
             break
         case 3:
             goto(viewController: STPrivacyViewController.self)
@@ -34,12 +35,6 @@ extension STSettingsViewController {
             break
         default:
             break
-        }
-    }
-    
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if let settingCell = cell as? SettingTableViewCell {
-            settingCell.settingSwitch.isOn = Defaults[.saveToCameraRoll]
         }
     }
     

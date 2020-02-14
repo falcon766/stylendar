@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyUserDefaults
 
-class SettingTableViewCell: UITableViewCell {
+class STSaveCameraRollTableViewCell: UITableViewCell {
     
     @IBOutlet var settingSwitch: UISwitch!
     
