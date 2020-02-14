@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyUserDefaults
 
 private var compression: CGFloat = 0.0
 extension STStylendarViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -19,11 +20,11 @@ extension STStylendarViewController: UIImagePickerControllerDelegate, UINavigati
         }
         
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            /* Requirment is don't save photo to PhotosAlbum
-            if picker.sourceType == .camera {
+            // Save photo to PhotosAlbum
+            let isSavePhoto = Defaults[.saveToCameraRoll];
+            if picker.sourceType == .camera && isSavePhoto {
                 UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
             }
-             */
             checkSizeAndGo(image: image)
         } else {
             STAlert.top(STString.unknownError, isPositive: false)

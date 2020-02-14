@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyUserDefaults
 
 extension STSettingsViewController {
     
@@ -21,18 +22,27 @@ extension STSettingsViewController {
             goto(viewController: STChangePasswordViewController.self)
             break
         case 2:
-            goto(viewController: STPrivacyViewController.self)
             break
         case 3:
-            didTapInviteButton()
-        break
+            goto(viewController: STPrivacyViewController.self)
+            break
         case 4:
+            didTapInviteButton()
+            break
+        case 5:
             didTapLogoutButton()
             break
         default:
             break
         }
     }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let settingCell = cell as? SettingTableViewCell {
+            settingCell.settingSwitch.isOn = Defaults[.saveToCameraRoll]
+        }
+    }
+    
 }
 
 extension STSettingsViewController {

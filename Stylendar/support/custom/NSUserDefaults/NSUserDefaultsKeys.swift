@@ -28,6 +28,10 @@ extension DefaultsKeys {
      */
     static let preference = DefaultsKey<String>("preference")
     
+    /**
+     *  The PREFERENCE system.
+     */
+    static let saveToCameraRoll = DefaultsKey<Bool>("saveToCameraRoll")
     
     /**
      *  The app's preferences system.
