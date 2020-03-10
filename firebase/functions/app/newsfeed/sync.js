@@ -23,10 +23,14 @@ function push(data, user, stylendar) {
 		createdAt: moment().format()
 	};
 
-	// Now we perform a depth-first search into the stylendar. For each polaroid found we create a post in the follower's newsfeed.
+	// Perform a depth-first search into the stylendar. For each polaroid found we create
+	// a post in the follower's newsfeed.
 	//
-	// We have to clearfix the `year`, `month` and `day` keys because they were all prefixed with `y`, `m`, and `d`, so that we don't store data
-	// as arrays. Read more about it here: https://stackoverflow.com/questions/15534917/why-do-firebase-collections-seem-to-begin-with-a-null-row.
+	// We have to clearfix the `year`, `month` and `day` keys because they were all
+	// prefixed with `y`, `m`, and `d`, so that we don't store data as arrays.
+	//
+	// Read more about it here:
+	// https://stackoverflow.com/questions/15534917/why-do-firebase-collections-seem-to-begin-with-a-null-row.
 	Object.keys(stylendar).forEach((year) => {
 		const yearObj = stylendar[year];
 		Object.keys(yearObj).forEach((month) => {
@@ -38,7 +42,8 @@ function push(data, user, stylendar) {
 				if (!update.date || !update.imageUrl) { return; }
 
 				// The path is `/veins/newsfeed/follower.uid` because the posts are for the new follower's news feed.
-				const promise = database.ref(`/veins/newsfeed/${data.follower.uid}`).push().set(update);
+				const pushId = update.uid + update.date.replace(new RegExp('/', 'g'),'');
+				const promise = database.ref(`/veins/newsfeed/${data.follower.uid}/${pushId}`).set(update);
 				promises.push(promise);
 			});
 		});
