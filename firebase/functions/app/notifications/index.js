@@ -9,9 +9,9 @@ const strings = require('../../codebase/strings');
 
 const handler = require('./handler');
 
-function handle(event, metadata) {
+function handle(metadata) {
 
-	// Get the data from the event.
+	// Get the data from the metadata.
 	const uid = metadata.uid;
 	const user = metadata.user;
 
@@ -45,11 +45,11 @@ function handle(event, metadata) {
 }
 
 // Listen for any follower which gets added or removed.
-const followers = functions.database.ref('/veins/followers/{uid}/{pushId}').onWrite(event => {
+const followers = functions.database.ref('/veins/followers/{uid}/{pushId}').onWrite((change, context) => {
 	// We stop here if the follower was removed. We don't want to anything in this case.
-	if (!event.data.val()) { return; }
+	if (!change.after.val()) { return; }
 
-	return database.ref(`/users/${event.params.uid}`).once('value').then((snapshot) => {
+	return database.ref(`/users/${context.params.uid}`).once('value').then((snapshot) => {
 		const user = snapshot.val();
 
 		// We send different notifications based upon the privacy of the user:
@@ -59,17 +59,17 @@ const followers = functions.database.ref('/veins/followers/{uid}/{pushId}').onWr
 		var metadata;
 		if (user.privacy.isStylendarPublic) {
 			metadata = {
-				uid: event.params.uid,
-				user: event.data.val(),
+				uid: context.params.uid,
+				user: change.after.val(),
 				type: constants.kSTNotificationFollower,
 				title: strings.notificationFollowerTitle,
 				message: strings.notificationFollowerMessage
 			};
 		} else {
 			metadata = {
-				uid: event.data.val().uid,
+				uid: change.after.val().uid,
 				user: {
-					uid: event.params.uid,
+					uid: context.params.uid,
 					name: user.name.first,
 					username: user.username,
 					profileImageUrl: user.profileImageUrl
@@ -80,25 +80,25 @@ const followers = functions.database.ref('/veins/followers/{uid}/{pushId}').onWr
 			};
 		}
 
-		handle(event, metadata);
+		handle(metadata);
 	}).catch((error) => {
 		console.trace(`notifications:${__filename}: the promises system failed with the following error: ${error}, stack: ${error.stack}`);
 	});
 });
 
-const requests = functions.database.ref('/veins/requests/{uid}/{pushId}').onWrite(event => {
+const requests = functions.database.ref('/veins/requests/{uid}/{pushId}').onWrite((change, context) => {
 	// We stop here if the follower was removed. We don't want to do anything in this case.
-	if (!event.data.val()) { return; }
+	if (!change.after.val()) { return; }
 
 	const metadata = {
-		uid: event.params.uid,
-		user: event.data.val(),
+		uid: context.params.uid,
+		user: change.after.val(),
 		type: constants.kSTNotificationFollowerRequest,
 		title: strings.notificationFollowerRequestTitle,
 		message: strings.notificationFollowerRequestMessage
 	};
 
-	handle(event, metadata);
+	handle(metadata);
 });
 
 module.exports = { followers, requests };

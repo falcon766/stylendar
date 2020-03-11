@@ -138,9 +138,9 @@ function remove(uid) {
 //
 //	1. The `newsfeed`. Each post has the name, the username and the profileImageUrl.
 //	2. To be continued
-const sync = functions.database.ref('/users/{uid}').onWrite((event) => {
+const sync = functions.database.ref('/users/{uid}').onWrite((change, context) => {
 	var data = {
-		uid: event.params.uid,
+		uid: context.params.uid,
 		keys: [],
 		values: []
 	};
@@ -151,8 +151,8 @@ const sync = functions.database.ref('/users/{uid}').onWrite((event) => {
 	});
 
 	// The data was barely created. Only the elastic is triggered not because there's no other data to insert.
-	if (!event.data.previous.exists()) {
-		return elastic.create(data.uid, event.data.val());
+	if (!change.before.exists()) {
+		return elastic.create(data.uid, change.after.val());
 	}
 
 	// The data was deleted. We have to delete:
@@ -160,7 +160,7 @@ const sync = functions.database.ref('/users/{uid}').onWrite((event) => {
 	// 1. The database stylendar, newsfeed, followers and following entries.
 	// 2. The stored files in the profile and stylendar buckets.
 	// 3. The elastic search entries.
-	if (!event.data.exists()) {
+	if (!change.after.exists()) {
 		const promises = [remove(data.uid), /*storage.remove(data.uid),*/ elastic.remove(data.uid)];
 		return Promise.all(promises).then(() => {
 			return deauthenticate(data.uid);
@@ -169,8 +169,8 @@ const sync = functions.database.ref('/users/{uid}').onWrite((event) => {
 
 	// If we arrived here, the data was updated.
 	// We check to see if it was updated something which requires a further edit in the database (`name`, `username` or `profileImageUrl`).
-	const user = event.data.val();
-	const previousUser = event.data.previous.val();
+	const user = change.after.val();
+	const previousUser = change.before.val();
 
 	// nameWasChanged
 	if (user.name.full != previousUser.name.full) {

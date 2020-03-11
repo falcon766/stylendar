@@ -98,14 +98,14 @@ function remove(data, user, followers) {
 }
 
 // Listen for any polaroid which gets added.
-const post = functions.database.ref('/veins/stylendar/{uid}/{year}/{month}/{day}').onWrite(event => {
-	// Get the data from the event.
+const post = functions.database.ref('/veins/stylendar/{uid}/{year}/{month}/{day}').onWrite((change, context) => {
+	// Get the data from the payload.
 	const data = {
-		uid: event.params.uid,
-		year: event.params.year,
-		month: event.params.month,
-		day: event.params.day,
-		imageUrl: event.data.val()
+		uid: context.params.uid,
+		year: context.params.year,
+		month: context.params.month,
+		day: context.params.day,
+		imageUrl: change.after.val()
 	};
 
 	// We want to make sure no invalid write operation passed through.
@@ -128,7 +128,7 @@ const post = functions.database.ref('/veins/stylendar/{uid}/{year}/{month}/{day}
 		const followers = snapshots[1];
 
 		// The `onWrite` listener is for both creation and removal of data.
-		if (event.data.val()) {
+		if (change.after.val()) {
 			return push(data, user, followers);
 		} else {
 			return remove(data, user, followers);

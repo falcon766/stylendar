@@ -20,9 +20,9 @@ const gmailPassword = encodeURIComponent(functions.config().gmail.password);
 const mailTransport = nodemailer.createTransport(`smtps://${gmailEmail}:${gmailPassword}@smtp.gmail.com`);
 
 // Sends an email invitation when a report is is changed in the Realtime database.
-const report = functions.database.ref('/admin/report/{pushId}').onCreate((event) => {
-	if (!event.data.val()) { return false; }
-	const report = event.data.val();
+const report = functions.database.ref('/admin/report/{pushId}').onCreate((snapshot, context) => {
+	if (!snapshot.val()) { return false; }
+	const report = snapshot.val();
 	const uid = report.user.uid;
 
 	// Let's get the user's profile, the stylendar and then send the email.
