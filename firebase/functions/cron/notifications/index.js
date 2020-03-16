@@ -4,8 +4,6 @@ const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 const database = admin.database();
 
-const util = require('util');
-
 const constants = require('../../codebase/constants');
 const strings = require('../../codebase/strings');
 const utils = require('../../codebase/utils');
@@ -20,7 +18,6 @@ const notifications = functions.https.onRequest((req, res) => {
 	}
 
 	const today = new Date();
-	var output = '';
 	database.ref('/users').once('value').then((snapshot) => {
 		if (!snapshot.exists()) {
 			res.status(200).send('No issues occurred, but there are no users to be sent notifications to.');
@@ -30,13 +27,11 @@ const notifications = functions.https.onRequest((req, res) => {
 		snapshot.forEach((child) => {
 			const user = child.val();
 			if (!user || !user.utcOffset) { return; }
-			// output += util.inspect(user) + '<br>' + child.key + '<br><br>';
 
 			// Before actually adding the stylendar promise into the array, let's check if the hours
 			// indeed match for the user. The hours, obviously, are different across the globe and
 			// we smartly store the utc offset just for these kind of cases.
 			const userHour = today.getHours() + user.utcOffset;
-			output += util.inspect(userHour) + '<br>';
 
 			let shouldContinue = false;
 			switch(userHour) {
@@ -51,40 +46,29 @@ const notifications = functions.https.onRequest((req, res) => {
 			}
 			if (shouldContinue) {
 				fcmTokens.push(user.fcmToken);
-				output += `/veins/stylendar/${child.key}`;
 				promises.push(database.ref(`/veins/stylendar/${child.key}`).once('value'));
 			}
 		});
 
-		output += '<br>';
-
 		return Promise.all(promises).then((snapshots) => {
 			var notificationPromises = [];
-			output += 'fcmTokens' + util.inspect(fcmTokens) + '<br>';
-			output += 'snapshots: <br>';
 
 			for (var i = 0; i < fcmTokens.length; ++i) {
 				const snapshot = snapshots[i];
-				output += util.inspect(snapshot) + '<br>';
-				output += snapshot.exists() + '<br>';
 				let shouldContinue = true;
 
 				// If there's no stylendar at all, we'll of corso send the push.
 				if (snapshot.exists()) {
 					const stylendar = snapshot.val();
-					output += snapshot.key + '<br>' + util.inspect(stylendar)  + '<br>';
 
 					// We check the stylendar to see if the user posted today.
 					const yearKey = `y${today.getFullYear()}`;
-					output += yearKey + '<br>';
 					if (stylendar.hasOwnProperty(yearKey)) {
 						const yearObj = stylendar[yearKey];
 						const monthKey = `m${utils.padZero(today.getMonth() + 1 + '')}`;
-						output += monthKey + '<br>';
 						if (yearObj.hasOwnProperty(monthKey)) {
 							const monthObj = yearObj[monthKey];
 							const dayKey = `d${utils.padZero(today.getDate() + '')}`;
-							output += dayKey + '<br>';
 							if (monthObj.hasOwnProperty(dayKey)) {
 								shouldContinue = false;
 								break;
@@ -105,13 +89,11 @@ const notifications = functions.https.onRequest((req, res) => {
 			}
 
 			return Promise.all(notificationPromises).then(() => {
-				output += '<br><br>';
-				res.status(200).send(output);
-				// res.status(200).send(`Sent ${notificationPromises.length} push notifications`);
+				res.status(200).send(`Sent ${notificationPromises.length} push notifications`);
 			});
 		});
 	}).catch((error) => {
-		console.trace(`cron:notifications:${__filename}: error occurred: ${error}`);
+		console.trace(`cron:notifications:${__filename}: error occurred: ${error}, stack: ${error.stack}`);
 		res.status(400).send(`Status 400. Error occurred.`);
 	});
 });

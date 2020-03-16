@@ -11,19 +11,16 @@ const utils = require('../../codebase/utils');
 
 // After the user's profile was pulled, go iterate over his followers and append the polaroid.
 function push(data, user, followers) {
-	// Verify the user has any follower at all.
-	if (!followers) {
-		console.log(`newsfeed:${__filename}: user doesn\'t have any follower`);
-		return;
-	}
-
-
 	// This is finally the object which will be in the news feeds.
 	//
-	// We have to clearfix the `year`, `month` and `day` keys because they were all prefixed with `y`, `m`, and `d`, so that we don't store data
-	// as arrays. Read more about it here: https://stackoverflow.com/questions/15534917/why-do-firebase-collections-seem-to-begin-with-a-null-row.
+	// We have to clearfix the `year`, `month` and `day` keys because they were all
+	// prefixed with `y`, `m`, and `d`, so that we don't store data as arrays.
 	//
-	// We also wish to pad-zero the days and the month if they are lower than 0, so that the dates will be string-sortable when they are retrieved.
+	// Read more about it here:
+	// https://stackoverflow.com/questions/15534917/why-do-firebase-collections-seem-to-begin-with-a-null-row.
+	//
+	// We also wish to pad-zero the days and the month if they are lower than 0, so
+	// that the dates will be string-sortable when they are retrieved.
 	var update = {
 		uid: data.uid,
 		imageUrl: data.imageUrl,
@@ -33,11 +30,18 @@ function push(data, user, followers) {
 
 	var promises = [];
 
-	// Firstly, let's add the post the self user's feed.
-	const promise = database.ref(`/veins/newsfeed/${data.uid}`).push().set(update);
+	// Firstly, let's add the post to the self user's feed.
+	const pushId = update.uid + update.date.replace(new RegExp('/', 'g'),'');
+	const promise = database.ref(`/veins/newsfeed/${data.uid}/${pushId}`).set(update);
 	promises.push(promise);
 
-	// It'd be a shame to store the self profile of the user.
+	// Verify the user has any follower at all.
+	if (!followers) {
+		console.log(`newsfeed:${__filename}: user doesn\'t have any follower`);
+		return Promise.all(promises);
+	}
+
+	// It'd be a shame to store the self profile of the user, that's why it's added only now.
 	_.merge(update, {
 		username: user.username,
 		name: user.name.first,
@@ -49,7 +53,7 @@ function push(data, user, followers) {
 
 		// Generate the newsfeed push promise.
 		// const uid = follower[Object.keys(follower)[0]];
-		const promise = database.ref(`/veins/newsfeed/${follower.uid}`).push().set(update);
+		const promise = database.ref(`/veins/newsfeed/${follower.uid}/${pushId}`).set(update);
 		promises.push(promise);
 	});
 	return Promise.all(promises);
@@ -62,7 +66,8 @@ function remove(data, user, followers) {
 	var promises = [];
 
 	// Firstly, let's remove the post from the self user's feed.
-	const promise = database.ref(`/veins/newsfeed/${data.uid}`).orderByChild('date').equalTo(`${date}`).once('value');
+	const pushId = data.uid + date.replace(new RegExp('/', 'g'),'');
+	const promise = database.ref(`/veins/newsfeed/${data.uid}/${pushId}`).once('value');
 	promises.push(promise);
 
 	// Then, iterate the followers.
@@ -72,7 +77,7 @@ function remove(data, user, followers) {
 		if (!follower.uid) { return; }
 
 		// Now, for each follower, we have to iterate the posts and set on null the `value` of the current `key` parsed as parameter.
-		const promise = database.ref(`/veins/newsfeed/${follower.uid}`).orderByChild('date').equalTo(`${date}`).once('value');
+		const promise = database.ref(`/veins/newsfeed/${follower.uid}/${pushId}`).once('value');
 		promises.push(promise);
 	});
 
@@ -93,14 +98,14 @@ function remove(data, user, followers) {
 }
 
 // Listen for any polaroid which gets added.
-const post = functions.database.ref('/veins/stylendar/{uid}/{year}/{month}/{day}').onWrite(event => {
-	// Get the data from the event.
+const post = functions.database.ref('/veins/stylendar/{uid}/{year}/{month}/{day}').onWrite((change, context) => {
+	// Get the data from the payload.
 	const data = {
-		uid: event.params.uid,
-		year: event.params.year,
-		month: event.params.month,
-		day: event.params.day,
-		imageUrl: event.data.val()
+		uid: context.params.uid,
+		year: context.params.year,
+		month: context.params.month,
+		day: context.params.day,
+		imageUrl: change.after.val()
 	};
 
 	// We want to make sure no invalid write operation passed through.
@@ -123,7 +128,7 @@ const post = functions.database.ref('/veins/stylendar/{uid}/{year}/{month}/{day}
 		const followers = snapshots[1];
 
 		// The `onWrite` listener is for both creation and removal of data.
-		if (event.data.val()) {
+		if (change.after.val()) {
 			return push(data, user, followers);
 		} else {
 			return remove(data, user, followers);

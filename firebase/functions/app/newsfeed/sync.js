@@ -23,10 +23,14 @@ function push(data, user, stylendar) {
 		createdAt: moment().format()
 	};
 
-	// Now we perform a depth-first search into the stylendar. For each polaroid found we create a post in the follower's newsfeed.
+	// Perform a depth-first search into the stylendar. For each polaroid found we create
+	// a post in the follower's newsfeed.
 	//
-	// We have to clearfix the `year`, `month` and `day` keys because they were all prefixed with `y`, `m`, and `d`, so that we don't store data
-	// as arrays. Read more about it here: https://stackoverflow.com/questions/15534917/why-do-firebase-collections-seem-to-begin-with-a-null-row.
+	// We have to clearfix the `year`, `month` and `day` keys because they were all
+	// prefixed with `y`, `m`, and `d`, so that we don't store data as arrays.
+	//
+	// Read more about it here:
+	// https://stackoverflow.com/questions/15534917/why-do-firebase-collections-seem-to-begin-with-a-null-row.
 	Object.keys(stylendar).forEach((year) => {
 		const yearObj = stylendar[year];
 		Object.keys(yearObj).forEach((month) => {
@@ -38,7 +42,8 @@ function push(data, user, stylendar) {
 				if (!update.date || !update.imageUrl) { return; }
 
 				// The path is `/veins/newsfeed/follower.uid` because the posts are for the new follower's news feed.
-				const promise = database.ref(`/veins/newsfeed/${data.follower.uid}`).push().set(update);
+				const pushId = update.uid + update.date.replace(new RegExp('/', 'g'),'');
+				const promise = database.ref(`/veins/newsfeed/${data.follower.uid}/${pushId}`).set(update);
 				promises.push(promise);
 			});
 		});
@@ -62,11 +67,11 @@ function remove(data) {
 
 
 // Listen for any follower which gets added or removed, so that we'll update the denormalized data with the posts of the newly followed user.
-const sync = functions.database.ref('/veins/followers/{uid}/{pushId}').onWrite(event => {
-	// Get the data from the event.
-	const follower = event.data.val();
+const sync = functions.database.ref('/veins/followers/{uid}/{pushId}').onWrite((change, context) => {
+	// Get the data from the payload.
+	const follower = change.after.val();
 	const data = {
-		uid: event.params.uid,
+		uid: context.params.uid,
 		follower: follower
 	};
 
@@ -77,9 +82,9 @@ const sync = functions.database.ref('/veins/followers/{uid}/{pushId}').onWrite(e
 	// We also want to make sure there is no other follower in the database anymore (this cloud
 	// function might be the response of a deletion caused by the fixer, which furthermore performed
 	// the operation because there were n-plicates of the same follower).
-	const existencePromise = database.ref(`/veins/followers/${event.params.uid}/${event.params.pushId}`)
+	const existencePromise = database.ref(`/veins/followers/${context.params.uid}/${context.params.pushId}`)
 														.orderByChild('uid')
-														.equalTo(event.data.previous.val() ? event.data.previous.val().uid : 0)
+														.equalTo(change.before.val() ? change.before.val().uid : 0)
 														.once('value');
 
 	return Promise.all([profilePromise, stylendarPromise, existencePromise]).then((snapshots) => {
@@ -90,12 +95,12 @@ const sync = functions.database.ref('/veins/followers/{uid}/{pushId}').onWrite(e
 		const stylendar = snapshots[1].val();
 
 		// The `onWrite` listener is for both creation and removal of data.
-		if (event.data.val()) {
+		if (change.after.val()) {
 			return push(data, user, stylendar);
 		} else {
 			if (!snapshots[2].exists()) {
 				data.follower = {};
-				data.follower.uid = event.data.previous.val().uid;
+				data.follower.uid = change.before.val().uid;
 				return remove(data);
 			}
 		}

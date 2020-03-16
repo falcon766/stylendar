@@ -19,16 +19,16 @@ const gmailPassword = encodeURIComponent(functions.config().gmail.password);
 const mailTransport = nodemailer.createTransport(`smtps://${gmailEmail}:${gmailPassword}@smtp.gmail.com`);
 
 // Sends an email invitation when the data is changed in the Realtime database.
-const invitations = functions.database.ref('/invitations/{uid}/deliver').onWrite(event => {
+const invitations = functions.database.ref('/invitations/{uid}/deliver').onWrite((change, context) => {
 
 	// If the "deliver" was set on "false", we don't wish to send any email. This might occur either when the account is barely created or when
 	// someone changes the value by mistake on the Realtime Database.
-	const deliver = event.data.val();
+	const deliver = change.after.val();
 	if (deliver == false) { return; }
 
 
 	//  However, if the "deliver" is set to "true", we send the invitation email by also catching any error might appear.
-	const uid = event.params.uid;
+	const uid = context.params.uid;
 	return database.ref(`/invitations/${uid}`).once('value').then(snapshot => {
 		const invitee = snapshot.val();
 		return sendInvitationEmail(invitee.email, invitee.name.full);
