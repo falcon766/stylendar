@@ -164,7 +164,8 @@ const sync = functions.database.ref("/users/{uid}").onWrite((change, context) =>
   // 2. The stored files in the profile and stylendar buckets.
   // 3. The elastic search entries.
   if (!change.after.exists()) {
-    const promises = [remove(data.uid), /*storage.remove(data.uid),*/ elastic.remove(data.uid)];
+    /* UPDATE September 2020: disabled the storage removal because we have to upgrade @google-cloud/storage */
+    const promises = [remove(data.uid) /*storage.remove(data.uid)*/, , elastic.remove(data.uid)];
     return Promise.all(promises)
       .then(() => {
         return deauthenticate(data.uid);

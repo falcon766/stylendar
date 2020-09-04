@@ -3,10 +3,9 @@
   "description": "Cloud Functions for Firebase",
   "dependencies": {
     "@google-cloud/storage": "^1.2.1",
-    "elasticsearch": "^13.3.1",
-    "firebase-admin": "^8.9.2",
-    "firebase-functions": "^3.3.0",
-    "google-cloud": "^0.56.0",
+    "elasticsearch": "^16.7.1",
+    "firebase-admin": "^9.1.1",
+    "firebase-functions": "^3.11.0",
     "lodash": "^4.17.4",
     "moment": "^2.18.1",
     "nodemailer": "^4.0.1",
@@ -14,7 +13,7 @@
     "request-promise": "^4.2.1"
   },
   "engines": {
-    "node": "8"
+    "node": "12"
   },
   "private": true
 }
