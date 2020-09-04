@@ -142,7 +142,7 @@ DEPENDENCIES:
   - ZSWSuffixTextView
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  trunk:
     - Alamofire
     - BadgeSwift
     - Crashlytics
@@ -225,6 +225,6 @@ SPEC CHECKSUMS:
   SwiftyUserDefaults: 0f1d45fc3aafb9064dac661e367f8f83fe21a4b4
   ZSWSuffixTextView: 6f51208083b9d0cd6d1c92285e24f6f65ecb033c
 
-PODFILE CHECKSUM: 994ea2fe7347b8fb39b3c7b8b2d2260f4401fc68
+PODFILE CHECKSUM: 607660bffe6e7e97aef2b2d6f5f6b1714c70357b
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.3
