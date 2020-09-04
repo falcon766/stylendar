@@ -14,7 +14,7 @@ const nodemailer = require('nodemailer');
 // For other types of transports such as Sendgrid see https://nodemailer.com/transports/
 //
 // Observation: the gmail.email and gmail.password are environment variables set with the Firebase CLI.
-const adminRecipients = ['razvan.paul.birgaoanu@gmail.com, mdfleming@gmail.com'];
+const adminRecipients = ['hello@paulrberg.com@gmail.com, mdfleming@gmail.com'];
 const gmailEmail = encodeURIComponent(functions.config().gmail.email);
 const gmailPassword = encodeURIComponent(functions.config().gmail.password);
 const mailTransport = nodemailer.createTransport(`smtps://${gmailEmail}:${gmailPassword}@smtp.gmail.com`);
