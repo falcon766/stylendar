@@ -1,104 +1,119 @@
-'use strict';
+"use strict";
 
-const functions = require('firebase-functions');
-const admin = require('firebase-admin');
+const functions = require("firebase-functions");
+const admin = require("firebase-admin");
 const database = admin.database();
 
-const constants = require('../../codebase/constants');
-const strings = require('../../codebase/strings');
+const constants = require("../../codebase/constants");
+const strings = require("../../codebase/strings");
 
-const handler = require('./handler');
+const handler = require("./handler");
 
 function handle(metadata) {
+  // Get the data from the metadata.
+  const uid = metadata.uid;
+  const user = metadata.user;
 
-	// Get the data from the metadata.
-	const uid = metadata.uid;
-	const user = metadata.user;
+  // We have to retrieve the user's username, profileImageUrl and, the most crucial, the fcmToken. Without the latter, there's no push at all.
+  return database
+    .ref(`/users/${uid}/fcmToken`)
+    .once("value")
+    .then(snapshot => {
+      if (!snapshot.exists() || !snapshot.val()) {
+        return;
+      }
 
-	// We have to retrieve the user's username, profileImageUrl and, the most crucial, the fcmToken. Without the latter, there's no push at all.
-	return database.ref(`/users/${uid}/fcmToken`).once('value').then((snapshot) => {
-		if (!snapshot.exists() || !snapshot.val()) { return; }
+      const fcmToken = snapshot.val();
+      // Some follower notification messages have an '%@', which has to be replaced with the username of the follower.
+      metadata.message = metadata.message.replace("%@", user.username);
 
-		const fcmToken = snapshot.val();
-		// Some follower notification messages have an '%@', which has to be replaced with the username of the follower.
-		metadata.message = metadata.message.replace('%@', user.username);
+      // Wrap the information sent to the fcm handler into a nice object.
+      const data = {
+        fcmToken: fcmToken,
+        title: metadata.title,
+        message: metadata.message,
+        type: metadata.type,
+        user: {
+          uid: user.uid,
+          name: user.name,
+          username: user.username,
+          profileImageUrl: user.profileImageUrl,
+        },
+      };
 
-		// Wrap the information sent to the fcm handler into a nice object.
-		const data = {
-			fcmToken: fcmToken,
-			title: metadata.title,
-			message: metadata.message,
-			type: metadata.type,
-			user: {
-				uid: user.uid,
-				name: user.name,
-				username: user.username,
-				profileImageUrl: user.profileImageUrl
-			}
-		};
-
-		// Use the handler to send it.
-		return handler.generateModelAndDeliverPushNotification(data);
-	}).catch((error) => {
-		console.log(`notifications:${__filename}: the promises system failed with the following error: `, error);
-	});
+      // Use the handler to send it.
+      return handler.generateModelAndDeliverPushNotification(data);
+    })
+    .catch(error => {
+      console.log(`notifications:${__filename}: the promises system failed with the following error: `, error);
+    });
 }
 
 // Listen for any follower which gets added or removed.
-const followers = functions.database.ref('/veins/followers/{uid}/{pushId}').onWrite((change, context) => {
-	// We stop here if the follower was removed. We don't want to anything in this case.
-	if (!change.after.val()) { return; }
+const followers = functions.database.ref("/veins/followers/{uid}/{pushId}").onWrite((change, context) => {
+  // We stop here if the follower was removed. We don't want to anything in this case.
+  if (!change.after.val()) {
+    return;
+  }
 
-	return database.ref(`/users/${context.params.uid}`).once('value').then((snapshot) => {
-		const user = snapshot.val();
+  return database
+    .ref(`/users/${context.params.uid}`)
+    .once("value")
+    .then(snapshot => {
+      const user = snapshot.val();
 
-		// We send different notifications based upon the privacy of the user:
-		//
-		// a public stylendar send the push directly to the owner that he has a new follower
-		// a private stylendar means we have to alert the person who requested to follow that his request was accepted
-		var metadata;
-		if (user.privacy.isStylendarPublic) {
-			metadata = {
-				uid: context.params.uid,
-				user: change.after.val(),
-				type: constants.kSTNotificationFollower,
-				title: strings.notificationFollowerTitle,
-				message: strings.notificationFollowerMessage
-			};
-		} else {
-			metadata = {
-				uid: change.after.val().uid,
-				user: {
-					uid: context.params.uid,
-					name: user.name.first,
-					username: user.username,
-					profileImageUrl: user.profileImageUrl
-				},
-				type: constants.kSTNotificationFollowerRequestAccepted,
-				title: strings.notificationFollowerRequestAcceptedTitle,
-				message: strings.notificationFollowerRequestAcceptedMessage
-			};
-		}
+      // We send different notifications based upon the privacy of the user:
+      //
+      // a public stylendar send the push directly to the owner that he has a new follower
+      // a private stylendar means we have to alert the person who requested to follow that his request was accepted
+      var metadata;
+      if (user.privacy.isStylendarPublic) {
+        metadata = {
+          uid: context.params.uid,
+          user: change.after.val(),
+          type: constants.kSTNotificationFollower,
+          title: strings.notificationFollowerTitle,
+          message: strings.notificationFollowerMessage,
+        };
+      } else {
+        metadata = {
+          uid: change.after.val().uid,
+          user: {
+            uid: context.params.uid,
+            name: user.name.first,
+            username: user.username,
+            profileImageUrl: user.profileImageUrl,
+          },
+          type: constants.kSTNotificationFollowerRequestAccepted,
+          title: strings.notificationFollowerRequestAcceptedTitle,
+          message: strings.notificationFollowerRequestAcceptedMessage,
+        };
+      }
 
-		handle(metadata);
-	}).catch((error) => {
-		console.trace(`notifications:${__filename}: the promises system failed with the following error: ${error}, stack: ${error.stack}`);
-	});
+      handle(metadata);
+    })
+    .catch(error => {
+      console.trace(
+        `notifications:${__filename}: the promises system failed with the following error: ${error}, stack: ${error.stack}`,
+      );
+    });
 });
 
-const requests = functions.database.ref('/veins/requests/{uid}/{pushId}').onWrite((change, context) => {
-	// We stop here if the follower was removed. We don't want to do anything in this case.
-	if (!change.after.val()) { return; }
+const requests = functions.database.ref("/veins/requests/{uid}/{pushId}").onWrite((change, context) => {
+  // We stop here if the follower was removed. We don't want to do anything in this case.
+  if (!change.after.val()) {
+    return;
+  }
 
-	const metadata = {
-		uid: context.params.uid,
-		user: change.after.val(),
-		type: constants.kSTNotificationFollowerRequest,
-		title: strings.notificationFollowerRequestTitle,
-		message: strings.notificationFollowerRequestMessage
-	};
+  const metadata = {
+    uid: context.params.uid,
+    user: change.after.val(),
+    type: constants.kSTNotificationFollowerRequest,
+    title: strings.notificationFollowerRequestTitle,
+    message: strings.notificationFollowerRequestMessage,
+  };
 
-	handle(metadata);
+  handle(metadata);
 });
 
 module.exports = { followers, requests };

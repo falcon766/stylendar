@@ -1,5 +1,5 @@
-'use strict';
+"use strict";
 
-const sync = require('./sync');
+const sync = require("./sync");
 
-module.exports = { sync};
+module.exports = { sync };
